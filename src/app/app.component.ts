@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,34 +12,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'busreservation';
   myImage: String = "assets/img/bookbus.png";
-  showModal: boolean;
-  registerForm: FormGroup;
-  submitted = false;
   btnStyle: string;
 
-  constructor(private formBuilder: FormBuilder) { }
-  show() {
-    this.showModal = true; // Show-Hide Modal Check
-  }
-  //Bootstrap Modal Close event
-  hide() {
-    this.showModal = false;
-  }
+  constructor(private controlDialog:MatDialog) { }
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
+
   }
-  get f() { return this.registerForm.controls; }
-  onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-    if (this.submitted) {
-      this.showModal = false;
-    }
+
+  openDialog(){
+    this.controlDialog.open(LoginComponent,{ disableClose: true });
   }
+
 }
