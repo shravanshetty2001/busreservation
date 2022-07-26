@@ -20,7 +20,7 @@
             <a class="nav-link" href="#">Wallet</a>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-primary" (click) = "show()"> Login</button>
+            <button type="button" class="btn btn-primary" (click) = "openDialog()"> Login</button>
           </li>
         </ul>
       </div>
@@ -28,7 +28,10 @@
   </nav>
   <router-outlet></router-outlet>
 </div>
-<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+
+<!-- <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -67,4 +70,5 @@
       </div>
     </div>
   </div>
-  </div>
+  <app-login></app-login>
+  </div> -->
