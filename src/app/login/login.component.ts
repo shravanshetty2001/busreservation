@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ForgotpasswordComponent } from '../forgotpassword/forgotpassword.component';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
 
-  constructor(private formBuilder: FormBuilder,private controlDialog:MatDialogRef<LoginComponent>) { }
+  constructor(private formBuilder: FormBuilder,private controlLoginDialog:MatDialogRef<LoginComponent>,private controlDialog:MatDialog) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -35,8 +36,16 @@ export class LoginComponent implements OnInit {
   }
 
   closeLogin(){
-    this.controlDialog.close();
+    this.controlLoginDialog.close();
   }
   
+  openForgotPasswordDialog(){
+    this.controlLoginDialog.close();
+    this.controlDialog.open(ForgotpasswordComponent,{ 
+      disableClose: true ,
+      width: '40%',
+      height: '65%'
+    });
+  }
 
 }

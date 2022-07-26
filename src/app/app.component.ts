@@ -20,7 +20,11 @@ export class AppComponent {
   }
 
   openDialog(){
-    this.controlDialog.open(LoginComponent,{ disableClose: true });
+    this.controlDialog.open(LoginComponent,{ 
+    disableClose: true ,
+    width: '40%',
+    height: '65%'
+    });
   }
 
 }

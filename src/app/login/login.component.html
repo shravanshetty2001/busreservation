@@ -30,9 +30,9 @@
         </form>
     </div>
     <div class="modal-footer">
-        <a href="#">Forgot Password?</a>
-        <a href="#">Register</a>
-        <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "closeLogin()">Close</button>
+        <a (click)="openForgotPasswordDialog()" class="mx-2">Forgot Password?</a>
+        <a href="#" class="mx-2">Register</a>
+        <button type="button" class="btn btn-dark mx-2" data-dismiss="modal" (click) = "closeLogin()">Close</button>
     </div>
   </div>
 </div>
