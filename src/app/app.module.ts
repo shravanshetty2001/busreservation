@@ -16,6 +16,8 @@ import {MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 
 
@@ -25,7 +27,9 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    AdminComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,
