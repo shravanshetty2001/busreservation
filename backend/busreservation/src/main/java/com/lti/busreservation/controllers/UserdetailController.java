@@ -12,23 +12,40 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.busreservation.models.Userdetail;
 import com.lti.busreservation.repository.UserdetailRepository;
+import com.lti.busreservation.services.UserdetailService;
+import com.lti.busreservation.dto.*;
 
 @RestController
 public class UserdetailController {
 
 	@Autowired
-	private UserdetailRepository userdetailRepository;
+	private UserdetailService userdetailService;
+	
+	
+	
 	@GetMapping("/userdetail")
-	public List<Userdetail> getAllUserdetail(){
+	public List<Userdetail> getAllUser(){
 		
-		return userdetailRepository.findAll();
+		return userdetailService.getAllUserdetail();
 	}
 	
 	@PostMapping("/userdetail")
 	public Userdetail createUserdetail(@Valid @RequestBody Userdetail userdetail){
 		
-		return userdetailRepository.save(userdetail);
+		return userdetailService.addUserdetail(userdetail);
 	}
+	
+	@PostMapping("/userlogin")
+	public Userdetail verifyUserLogin(@Valid @RequestBody LoginDto loginDto){
+		return userdetailService.verifyUser(loginDto);
+	}
+	
+	
+	@GetMapping("/name")
+	public String getName(){
+		return ("parth");
+	}
+	
 	
 	
 	
