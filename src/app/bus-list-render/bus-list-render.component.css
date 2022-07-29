@@ -1,0 +1,79 @@
+.list-menu .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  height: 100%;
+}
+
+
+.list-menu{
+  width: 100%;
+  float: right;
+  margin: 2%;
+  
+}
+.card-body-top img{
+  width: 5%; 
+  height: 5%;
+}
+
+.main-card-div{
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-menu
+{
+  height: 100%;
+  width: 30%;
+  margin: 2%;
+}
+.list-menu .card-body {
+ margin-top: 1.5%;
+}
+
+.list-menu .card-body .card-body-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.departure-time {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+.arrival-time{
+  
+  display: flex;
+  flex-direction: column;
+} 
+
+.time-duration{
+  font-weight: bold;
+}
+.start-from{
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.departure-time label{
+  color: grey;
+  font-size: medium;
+  font-weight: 50;
+}
+.arrival-time label{
+  color: grey;
+  font-size: medium;
+  font-weight: 50;
+} 
+.start-from label{
+  color: grey;
+  font-size: large;
+  font-weight: 20;
+}
+
+/* .card :hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+} */
