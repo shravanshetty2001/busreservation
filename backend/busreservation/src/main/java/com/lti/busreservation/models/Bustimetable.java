@@ -32,6 +32,8 @@ public class Bustimetable {
 	Place desnPlace;
 	@OneToMany(targetEntity =Booking.class,cascade=CascadeType.ALL)
 	List<Booking> booking;
+	@Column(name="price")
+	double price;
 	
 	public int getId() {
 		return id;
