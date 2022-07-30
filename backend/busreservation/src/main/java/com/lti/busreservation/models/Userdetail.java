@@ -2,22 +2,24 @@ package com.lti.busreservation.models;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="userdetail")
 public class Userdetail {
 	@Id
-	@SequenceGenerator(name="user_id",initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
-	@Column(name="email")
+	@Column(name="email",unique = true)
 	String email;
 	@Column(name="password")
 	String password;
