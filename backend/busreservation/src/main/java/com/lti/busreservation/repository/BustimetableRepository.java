@@ -1,5 +1,9 @@
 package com.lti.busreservation.repository;
 
-public class BustimetableRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.lti.busreservation.models.Bustimetable;
+
+public interface BustimetableRepository extends JpaRepository<Bustimetable, Long> {
 
 }

@@ -21,6 +21,7 @@
     "@angular/router": "^14.0.0",
     "angular-popper": "^2.0.1",
     "bootstrap": "^5.2.0",
+    "express": "^4.18.1",
     "jquery": "^3.6.0",
     "popper": "^1.0.1",
     "popper.js": "^1.16.1",
@@ -40,5 +41,18 @@
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.7.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shravanshetty2001/busreservation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shravanshetty2001/busreservation/issues"
+  },
+  "homepage": "https://github.com/shravanshetty2001/busreservation#readme"
 }

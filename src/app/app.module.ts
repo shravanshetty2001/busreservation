@@ -19,6 +19,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { AdminComponent } from './admin/admin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AdminregisterComponent } from './adminregister/adminregister.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -42,7 +43,8 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

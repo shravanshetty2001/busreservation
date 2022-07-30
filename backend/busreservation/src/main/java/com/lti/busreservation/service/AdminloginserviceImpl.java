@@ -10,7 +10,7 @@ import com.lti.busreservation.models.Admin;
 import com.lti.busreservation.repository.AdminRepository;
 
 @Service
-public class AdminserviceImpl implements Adminservice {
+public class AdminloginserviceImpl implements Adminloginservice {
 	@Autowired
 	private AdminRepository adminRepository;
 

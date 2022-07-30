@@ -10,7 +10,7 @@ export class AdminregisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder ) {}
 
   ngOnInit(): void {
     this.registerForm=this.formBuilder.group({
@@ -19,6 +19,18 @@ export class AdminregisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       contact: ['',[Validators.required,Validators.pattern('^\\d{10}$')]]
     });
+  }
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+    if (this.submitted) {
+      
+    }
   }
 
 }
