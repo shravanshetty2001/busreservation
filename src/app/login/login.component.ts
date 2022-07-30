@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ForgotpasswordComponent } from '../forgotpassword/forgotpassword.component';
 import { RegisterComponent } from '../register/register.component';
+import {UserService} from '../services/user.service'
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private controlLoginDialog:MatDialogRef<LoginComponent>,
-              private controlDialog:MatDialog) { }
+              private controlDialog:MatDialog,
+              private userService:UserService
+              ) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -34,11 +37,13 @@ export class LoginComponent implements OnInit {
       return;
     }
     if (this.submitted) {
+      
       this.closeLogin();
     }
   }
 
   closeLogin(){
+    this.getData()
     this.controlLoginDialog.close();
   }
   
@@ -59,5 +64,13 @@ export class LoginComponent implements OnInit {
       height: '65%'
     });
   }
+
+  public getData(){
+    this.userService.getUserList().subscribe(data=>{
+     console.log(data);
+    });
+    
+  }
+
 
 }
