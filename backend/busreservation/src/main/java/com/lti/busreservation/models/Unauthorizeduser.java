@@ -2,6 +2,8 @@ package com.lti.busreservation.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -12,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="unauthorizeduser")
 public class Unauthorizeduser {
 	@Id
-	@SequenceGenerator(name="unauthorized_id",initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	@Column(name="email")
 	String email;

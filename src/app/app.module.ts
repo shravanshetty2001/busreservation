@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { AdminregisterComponent } from './adminregister/adminregister.component';
 
 
 
@@ -29,7 +30,8 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
     RegisterComponent,
     ForgotpasswordComponent,
     AdminComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    AdminregisterComponent
   ],
   imports: [
     BrowserModule,
