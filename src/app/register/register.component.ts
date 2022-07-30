@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
       console.log(this.userdetailDto.email);
       console.log(this.userdetailDto.password);
       this.registerData();
-      this.getData()
       this.closeRegisterDialog();
     }
   }
@@ -56,8 +55,7 @@ export class RegisterComponent implements OnInit {
   public registerData(){
     this.userService.doRegistration(this.userdetailDto).subscribe(data=>{
       console.log(data);
-    },
-    error=>console.log(error));
+    });
     
   }
   public getData(){

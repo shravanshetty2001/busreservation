@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { LoginDto } from '../classcomponents/LoginDto';
+import { Userdetail } from '../classcomponents/Userdetail';
 import { ForgotpasswordComponent } from '../forgotpassword/forgotpassword.component';
 import { RegisterComponent } from '../register/register.component';
 import {UserService} from '../services/user.service'
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
-
+  loginDto:LoginDto=new LoginDto();
+  userdetail:Userdetail;
 
   constructor(private formBuilder: FormBuilder,
               private controlLoginDialog:MatDialogRef<LoginComponent>,
@@ -38,12 +41,12 @@ export class LoginComponent implements OnInit {
     }
     if (this.submitted) {
       
+      this.doLogin();
       this.closeLogin();
     }
   }
 
   closeLogin(){
-    this.getData()
     this.controlLoginDialog.close();
   }
   
@@ -70,6 +73,16 @@ export class LoginComponent implements OnInit {
      console.log(data);
     });
     
+  }
+
+  public doLogin(){
+    this.userService.doLogin(this.loginDto).subscribe(
+      (data)=>{this.userdetail=data;});
+      //console.log(this.userdetail.email);
+      sessionStorage.setItem('loginStatus','true');
+      sessionStorage.setItem('logininfo',JSON.stringify(this.userdetail));
+      let us:Userdetail=JSON.parse(sessionStorage.getItem('logininfo'));
+      console.log(us.email);
   }
 
 
