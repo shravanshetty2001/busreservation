@@ -2,7 +2,14 @@ import { Payment } from "./Payment";
 
 export class Userdetail{
 
-    constructor(){}
+    constructor(
+        id:number,
+        name:string,
+        email:string,
+        password:string,
+        contactNo:string,
+        balance:number,
+        payment:Payment[]){}
     id:number
     name:string
     email:string
@@ -10,5 +17,7 @@ export class Userdetail{
     contactNo:string
     balance:number
     payment:Payment[]
+
+
 
 }

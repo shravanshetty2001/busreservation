@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   loginDto:LoginDto=new LoginDto();
   userdetail:Userdetail;
-
+  us:Userdetail;
   constructor(private formBuilder: FormBuilder,
               private controlLoginDialog:MatDialogRef<LoginComponent>,
               private controlDialog:MatDialog,
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     if (this.submitted) {
-      
+      //console.log("parth "+this.loginDto.email);
       this.doLogin();
       this.closeLogin();
     }
@@ -76,13 +76,24 @@ export class LoginComponent implements OnInit {
   }
 
   public doLogin(){
+
+
     this.userService.doLogin(this.loginDto).subscribe(
-      (data)=>{this.userdetail=data;});
-      //console.log(this.userdetail.email);
-      sessionStorage.setItem('loginStatus','true');
-      sessionStorage.setItem('logininfo',JSON.stringify(this.userdetail));
-      let us:Userdetail=JSON.parse(sessionStorage.getItem('logininfo'));
-      console.log(us.email);
+      (data)=>{ 
+        this.userdetail=data;
+        this.doLoginInSession();
+    });
+
+  }
+
+  public doLoginInSession(){
+
+    console.log("parth 1"+this.userdetail);
+    sessionStorage.setItem('loginStatus','true');
+    sessionStorage.setItem('logininfo',JSON.stringify(this.userdetail));
+    this.us=JSON.parse(sessionStorage.getItem('logininfo'));
+    console.log(this.us.balance);
+
   }
 
 
