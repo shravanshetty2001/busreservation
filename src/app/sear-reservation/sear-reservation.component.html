@@ -1,0 +1,102 @@
+
+  <div class="container-fluid pt-5 mb-5">
+    <div class="card" style="height: 100%;">
+      <div class="container" style="width:100%;">
+        <div class="row justify-content-center">
+          <div class="col-md-9">
+          <div class="seat_plan_wrap" 
+                style=" display: flex;
+                        justify-content: space-between;" 
+                        >
+            <div class="row">
+              <div class="disp-seat">
+                
+                <h6>Select Seats </h6>
+                <!-- <div class="handle">
+                  <img src="../assets/img/handle.png" alt="">
+                </div> -->
+                <div class="seats">
+                  <div class="row1">
+                    <ul style="list-style: none;">
+                      <li>
+                        <a (click)="Seat('1')" id="1" title="[1]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="Seat('2')" id="2" title="[2]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[3]" (click)="Seat('3')" id="3">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[4]" (click)="Seat('4')" id="4">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[5]" (click)="Seat('5')" id="5">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[6]" (click)="Seat('6')" id="6">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[7]" (click)="Seat('7')" id="7">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[8]" (click)="Seat('8')" id="8">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[9]" (click)="Seat('9')" id="9">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div *ngIf="alert" class="alert alert-danger ">You can buy only 1 seats in one time </div>
+                </div>
+              </div>
+              <div class="disp-data col-md-6 ">
+              <div class="seat_plan">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Seats No</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let s of showSeatList">
+                      <td>{{s.seatno}}</td>
+                     
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+                <div class="total  bg-default">
+                  <b>Total: {{total}}</b>
+                </div>
+                <div class="row">
+                  <button (click)="confirmJourney()"class="btn mt-3 ml-3 btn-primary btn-sm btn-block ">Confirm</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 

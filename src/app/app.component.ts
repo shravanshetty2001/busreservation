@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from './login/login.component';
-
 
 @Component({
   selector: 'app-root',
@@ -11,20 +7,5 @@ import { LoginComponent } from './login/login.component';
 })
 export class AppComponent {
   title = 'busreservation';
-  myImage: String = "assets/img/bookbus.png";
-  btnStyle: string;
-
-  constructor(private controlDialog:MatDialog) { }
-  ngOnInit() {
-
-  }
-
-  openDialog(){
-    this.controlDialog.open(LoginComponent,{ 
-    disableClose: true ,
-    width: '40%',
-    height: '65%'
-    });
-  }
-
+  myImage:String="assets/img/bookbus.png"
 }
