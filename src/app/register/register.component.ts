@@ -25,7 +25,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private controlRegisterDialog:MatDialogRef<RegisterComponent>,
-    private userService:UserService
+    private userService:UserService,
+    private controlLoginDialog:MatDialogRef<RegisterComponent>
     ) { }
 
   ngOnInit(): void {
@@ -83,6 +84,10 @@ export class RegisterComponent implements OnInit {
      console.log(data);
     });
     
+  }
+
+  public closeRegister(){
+    this.controlLoginDialog.close();
   }
 
 }

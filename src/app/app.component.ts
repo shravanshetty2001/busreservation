@@ -27,12 +27,21 @@ export class AppComponent {
     }
   }
 
-  openDialog(){
-    this.controlDialog.open(LoginComponent,{ 
-    disableClose: true ,
-    width: '40%',
-    height: '65%'
-    });
+  loginButtonAction(){
+
+    if(sessionStorage.getItem("loginStatus")=='true'){
+
+      sessionStorage.clear();
+      window.location.reload();
+  
+    }
+    else{
+      this.controlDialog.open(LoginComponent,{ 
+        disableClose: true ,
+        width: '40%',
+        height: '65%'
+      });
+    }
   }
 
 }
