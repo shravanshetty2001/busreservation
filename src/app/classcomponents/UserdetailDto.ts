@@ -1,10 +1,21 @@
+
+
 export class UserdetailDto{
 
-    constructor(){}
+    constructor(
+        id:number,
+        name:string,
+        email:string,
+        password:string,
+        contactNo:string,
+        balance:number){}
+    id:number
     name:string
     email:string
     password:string
     contactNo:string
+    balance:number
+
 
 
 }

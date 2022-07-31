@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserdetailRegisterDto } from '../classcomponents/UserdetailRegisterDto';
 import { UserdetailDto } from '../classcomponents/UserdetailDto';
-import { Userdetail } from '../classcomponents/Userdetail';
 import { LoginDto } from '../classcomponents/LoginDto';
+import {UserdetailStatusDto} from '../classcomponents/UserdetailStatusDto';
 
 
 @Injectable({
@@ -14,18 +15,18 @@ export class UserService {
   constructor(private httpClient:HttpClient) { }
 
   private baseURL = "http://localhost:8080";
-  public doRegistration(userdetailDto:UserdetailDto): Observable<Object>{
+  public doRegistration(userdetailRegisterDto:UserdetailRegisterDto): Observable<Object>{
 
-    return this.httpClient.post(this.baseURL+"/userdetail",userdetailDto);
+    return this.httpClient.post(this.baseURL+"/userdetail",userdetailRegisterDto);
 
   }
 
-  public getUserList(): Observable<Userdetail[]>{
-    return this.httpClient.get<Userdetail[]>('http://localhost:8080/userdetail');
+  public getUserList(): Observable<UserdetailDto[]>{
+    return this.httpClient.get<UserdetailDto[]>('http://localhost:8080/userdetail');
   }
 
-  public doLogin(loginDto:LoginDto): Observable<Userdetail>{
-    return this.httpClient.post<Userdetail>(this.baseURL+'/userlogin',loginDto);
+  public doLogin(loginDto:LoginDto): Observable<UserdetailStatusDto>{
+    return this.httpClient.post<UserdetailStatusDto>(this.baseURL+'/userlogin',loginDto);
   }
 
 

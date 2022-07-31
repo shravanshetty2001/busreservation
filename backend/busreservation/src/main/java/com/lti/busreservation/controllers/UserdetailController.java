@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.busreservation.models.Userdetail;
-import com.lti.busreservation.dto.UserdetailDto;
+import com.lti.busreservation.dto.UserdetailRegisterDto;
 import com.lti.busreservation.services.UserdetailService;
 import com.lti.busreservation.dto.*;
 
@@ -26,19 +26,19 @@ public class UserdetailController {
 	
 	
 	@GetMapping("/userdetail")
-	public List<Userdetail> getAllUser(){
+	public List<UserdetailDto> getAllUser(){
 		
 		return userdetailService.getAllUserdetail();
 	}
 	
 	@PostMapping("/userdetail")
-	public Userdetail createUserdetail(@Valid @RequestBody UserdetailDto userdetailDto){
+	public UserdetailStatusDto createUserdetail(@Valid @RequestBody UserdetailRegisterDto userdetailRegisterDto){
 		
-		return userdetailService.addUserdetail(userdetailDto);
+		return userdetailService.addUserdetail(userdetailRegisterDto);
 	}
 	
 	@PostMapping("/userlogin")
-	public Userdetail verifyUserLogin(@Valid @RequestBody LoginDto loginDto){
+	public UserdetailStatusDto verifyUserLogin(@Valid @RequestBody LoginDto loginDto){
 		return userdetailService.verifyUser(loginDto);
 	}
 	

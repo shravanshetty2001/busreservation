@@ -1,19 +1,11 @@
 package com.lti.busreservation.dto;
 
-public class UserdetailDto {
-	
-	int id;
+
+public class UserdetailRegisterDto {
 	String email;
 	String password;
 	String name;
 	String contactNo;
-	int balance;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getEmail() {
 		return email;
 	}
@@ -38,14 +30,6 @@ public class UserdetailDto {
 	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
 	}
-	public int getBalance() {
-		return balance;
-	}
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
 	
 	
-	
-
 }

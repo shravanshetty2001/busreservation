@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Userdetail } from '../classcomponents/Userdetail';
 import { UserdetailDto } from '../classcomponents/UserdetailDto';
+import { UserdetailRegisterDto } from '../classcomponents/UserdetailRegisterDto';
 import {UserService} from '../services/user.service'
 
 @Component({
@@ -15,8 +15,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   message:any;
-  userdetailDto:UserdetailDto=new UserdetailDto();
-  userdetails:Userdetail[];
+  userdetailRegisterDto:UserdetailRegisterDto=new UserdetailRegisterDto();
+  userdetails:UserdetailDto[];
 
   constructor(private formBuilder: FormBuilder,
     private controlRegisterDialog:MatDialogRef<RegisterComponent>,
@@ -41,8 +41,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
     if (this.submitted) {
-      console.log(this.userdetailDto.email);
-      console.log(this.userdetailDto.password);
+      console.log(this.userdetailRegisterDto.email);
+      console.log(this.userdetailRegisterDto.password);
       this.registerData();
       this.closeRegisterDialog();
     }
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerData(){
-    this.userService.doRegistration(this.userdetailDto).subscribe(data=>{
+    this.userService.doRegistration(this.userdetailRegisterDto).subscribe(data=>{
       console.log(data);
     });
     

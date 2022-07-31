@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginDto } from '../classcomponents/LoginDto';
-import { Userdetail } from '../classcomponents/Userdetail';
+import { UserdetailDto } from '../classcomponents/UserdetailDto';
+import { UserdetailStatusDto } from '../classcomponents/UserdetailStatusDto';
 import { ForgotpasswordComponent } from '../forgotpassword/forgotpassword.component';
 import { RegisterComponent } from '../register/register.component';
 import {UserService} from '../services/user.service'
@@ -18,8 +19,11 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   loginDto:LoginDto=new LoginDto();
-  userdetail:Userdetail;
-  us:Userdetail;
+  userdetailDto:UserdetailDto;
+  us:UserdetailDto;
+  errorMessage:string;
+  showAlert:boolean=false;
+
   constructor(private formBuilder: FormBuilder,
               private controlLoginDialog:MatDialogRef<LoginComponent>,
               private controlDialog:MatDialog,
@@ -41,8 +45,8 @@ export class LoginComponent implements OnInit {
     }
     if (this.submitted) {
       //console.log("parth "+this.loginDto.email);
+      this.showAlert=false;
       this.doLogin();
-      this.closeLogin();
     }
   }
 
@@ -80,19 +84,28 @@ export class LoginComponent implements OnInit {
 
     this.userService.doLogin(this.loginDto).subscribe(
       (data)=>{ 
-        this.userdetail=data;
-        this.doLoginInSession();
+        let userdetailStatusDto:UserdetailStatusDto=data
+        console.log(data)
+        this.doLoginInSession(userdetailStatusDto);
     });
 
   }
 
-  public doLoginInSession(){
-
-    console.log("parth 1"+this.userdetail);
-    sessionStorage.setItem('loginStatus','true');
-    sessionStorage.setItem('logininfo',JSON.stringify(this.userdetail));
-    this.us=JSON.parse(sessionStorage.getItem('logininfo'));
-    console.log(this.us.balance);
+  public doLoginInSession(userdetailStatusDto:UserdetailStatusDto){
+    
+    if(userdetailStatusDto.status==true){
+      this.userdetailDto=userdetailStatusDto.userdetailDto;
+      console.log("parth 1"+this.userdetailDto);
+      sessionStorage.setItem('loginStatus','true');
+      sessionStorage.setItem('logininfo',JSON.stringify(this.userdetailDto));
+      this.us=JSON.parse(sessionStorage.getItem('logininfo'));
+      console.log(this.us.balance);
+      this.closeLogin();
+    }
+    else{
+      this.errorMessage=userdetailStatusDto.errorMessge;
+      this.showAlert=true;
+    }
 
   }
 
