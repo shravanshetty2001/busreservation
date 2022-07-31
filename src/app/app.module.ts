@@ -18,8 +18,10 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import {UserService} from './services/user.service'
+import {HttpClientModule} from '@angular/common/http'
 import { AdminregisterComponent } from './adminregister/adminregister.component';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -46,7 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
