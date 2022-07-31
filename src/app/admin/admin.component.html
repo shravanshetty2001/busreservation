@@ -1,4 +1,4 @@
-<div class="bg" [ngStyle]="{'background-image': 'linear-gradient(-225deg, rgba(0,0,0,0.6) 50%, rgba(0,36,61,0.6) 80%)'}">
+<div class="bg">
   <div class="position-absolute top-50 start-50 translate-middle w-25 ">
     <div class="card">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -9,7 +9,7 @@
           <div class="form-group my-3">
             <label>Email</label>
             <input type="email" class="form-control" formControlName="email" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="email" [(ngModel)]="admin.email">
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">Email is required</div>
               <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -18,7 +18,7 @@
           <div class="form-group my-3">
             <label>Password</label>
             <input type="password" formControlName="password" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors  }" [(ngModel)]="admin.password" />
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
               <div *ngIf="f.password.errors.required">Password is required</div>
               <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
@@ -29,7 +29,8 @@
           </div>
         </div>
         <div class="modal-footer my-3">
-            <a routerLink="#" class="mx-2">Forgot Password?</a>
+            <a class="mx-2" routerLink="/adminregister">Register</a>
+            <a class="mx-2">Forgot Password?</a>
         </div>
       </form>
     </div>

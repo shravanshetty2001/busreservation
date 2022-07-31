@@ -20,6 +20,10 @@ import { AdminComponent } from './admin/admin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import {UserService} from './services/user.service'
 import {HttpClientModule} from '@angular/common/http'
+import { AdminregisterComponent } from './adminregister/adminregister.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import {HttpClientModule} from '@angular/common/http'
     RegisterComponent,
     ForgotpasswordComponent,
     AdminComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    AdminregisterComponent
   ],
   imports: [
     BrowserModule,
