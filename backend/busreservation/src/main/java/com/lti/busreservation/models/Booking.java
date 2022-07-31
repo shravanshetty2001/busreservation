@@ -2,6 +2,8 @@ package com.lti.busreservation.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 @Table(name="bookings")
 public class Booking {
 	@Id
-	@SequenceGenerator(name="booking_id",initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	@Column(name="bookingstatus")
 	String bookingStatus;

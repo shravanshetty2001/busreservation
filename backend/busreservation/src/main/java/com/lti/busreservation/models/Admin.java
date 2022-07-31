@@ -6,10 +6,9 @@ import javax.persistence.*;
 @Table(name="admin")
 public class Admin {
 	@Id
-	@SequenceGenerator(name="admin_id",initialValue = 1)
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
-	@Column(name="email")
+	@Column(name="email",unique = true)
 	String email;
 	@Column(name="password")
 	String password;
@@ -53,8 +52,4 @@ public class Admin {
 	public List<Buslist> getBuslist() {
 		return buslist;
 	}
-	public void setBuslist(List<Buslist> buslist) {
-		this.buslist = buslist;
-	}
-
-}
+}	
