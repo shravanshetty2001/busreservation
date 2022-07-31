@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.busreservation.dto.AdminDto;
 import com.lti.busreservation.dto.AdminloginDto;
 import com.lti.busreservation.dto.AdminregisterDto;
+import com.lti.busreservation.dto.AdminstatusDto;
 import com.lti.busreservation.models.Admin;
 import com.lti.busreservation.service.Adminloginservice;
+import com.lti.busreservation.status.Status;
 
 
 @RestController
@@ -27,20 +30,16 @@ public class AdminController {
 	}
 	
 	@PostMapping("/admin/register")
-	public boolean createAdmin(@Valid @RequestBody AdminregisterDto adminregisterDto)
+	public AdminstatusDto createAdmin(@Valid @RequestBody AdminregisterDto adminregisterDto)
 	{
-		Admin ad=new Admin();
-		ad.setEmail(adminregisterDto.getEmail());
-		ad.setPassword(adminregisterDto.getPassword());
-		ad.setTravelname(adminregisterDto.getTravelname());
-		ad.setContactno(adminregisterDto.getContactno());
-		boolean k=adminService.registerData(ad);	
-		return k;
+		
+		return adminService.registerData(adminregisterDto);
 	}
 	@PostMapping("/admin/verify")
-	public boolean verifyUser(@Valid @RequestBody AdminloginDto adminloginDto){
-        boolean k=adminService.verifyData(adminloginDto.getEmail(),adminloginDto.getPassword());
-        return k;
+	public  AdminstatusDto verifyUser(@Valid @RequestBody AdminloginDto adminloginDto){
+		
+		return adminService.verifyData(adminloginDto);
+		
     }
 
 }

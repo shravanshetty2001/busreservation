@@ -1,8 +1,13 @@
 package com.lti.busreservation.service;
 
+import javax.validation.Valid;
+
+import com.lti.busreservation.dto.AdminloginDto;
+import com.lti.busreservation.dto.AdminregisterDto;
+import com.lti.busreservation.dto.AdminstatusDto;
 import com.lti.busreservation.models.Admin;
 
 public interface Adminloginservice {
-	public boolean verifyData(String email,String password);
-	public boolean registerData(Admin ad);
+	public AdminstatusDto registerData(AdminregisterDto adminregisterDto);
+	public AdminstatusDto verifyData(AdminloginDto adminloginDto);
 }

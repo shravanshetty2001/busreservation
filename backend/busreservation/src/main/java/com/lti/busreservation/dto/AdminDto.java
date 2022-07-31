@@ -1,7 +1,6 @@
 package com.lti.busreservation.dto;
 
-
-public class AdminregisterDto {
+public class AdminDto {
 	private int id;
 	private String email;
 	private String password;
@@ -37,4 +36,6 @@ public class AdminregisterDto {
 	public void setContactno(String contactno) {
 		this.contactno = contactno;
 	}
+	
+
 }

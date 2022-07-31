@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Admin } from '../admin';
-import { AdminService } from '../admin.service';
+import { Admin } from '../class/admin';
+import { AdminData } from '../class/admin-data';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,8 +14,9 @@ export class AdminComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   constructor(private formBuilder: FormBuilder, private service: AdminService, private router: Router) { }
-  admin: Admin = new Admin();
-  message: any;
+  admin: AdminData = new AdminData();
+  message: boolean;
+  ermessage:String;
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -31,12 +33,23 @@ export class AdminComponent implements OnInit {
     if (this.submitted) {
       this.service.doLogin(this.admin).subscribe(
         (data) => {
-          this.message = data;
-          dashboardredirect(this.message);
+          this.message = data['status'];
+          this.ermessage=data['errorMessage'];
+          console.log(this.message);
+          this.dashboardredirect(this.message,this.ermessage);
         }
       );
 
     }
+
+    }
+    dashboardredirect(_message: boolean,_ermessage:String) {
+      if (this.message) {
+        this.router.navigate(['/admindashboard']);
+      }
+      else {
+        alert("Admin Registeration Failed" + this.ermessage);
+      };
   }
   openForgotPasswordDialog() {
 
@@ -44,16 +57,5 @@ export class AdminComponent implements OnInit {
 
 
 }
-function dashboardredirect(message: any) {
-  if (this.message == true) {
-    console.log("condition" + this.message);
-    this.router.navigate(['/admindashboard']);
-    sessionStorage.setItem('loginStatus','true');
-    sessionStorage.setItem('logininfo',JSON.stringify(this.admin));
-    this.us=sessionStorage.getItem('logininfo');
-  }
-  else {
 
-  };
-}
 
