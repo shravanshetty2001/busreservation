@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('logininfo',JSON.stringify(this.userdetailDto));
       this.us=JSON.parse(sessionStorage.getItem('logininfo'));
       console.log(this.us.balance);
-      this.closeLogin();
+      window.location.reload();
     }
     else{
       this.errorMessage=userdetailStatusDto.errorMessge;

@@ -14,13 +14,13 @@
             <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/about">Booking</a>
+            <a class="nav-link" routerLink="/">Booking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Wallet</a>
+            <a class="nav-link" routerLink="/">Wallet</a>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-primary" (click) = "openDialog()"> Login</button>
+            <button type="button" class="btn btn-primary" (click) = "openDialog()"> {{loginStatus}}</button>
           </li>
         </ul>
       </div>

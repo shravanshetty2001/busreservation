@@ -13,10 +13,18 @@ export class AppComponent {
   title = 'busreservation';
   myImage: String = "assets/img/bookbus.png";
   btnStyle: string;
+  loginStatus:String;
 
-  constructor(private controlDialog:MatDialog) { }
+  constructor(private controlDialog:MatDialog) { 
+
+  }
   ngOnInit() {
-
+    if(sessionStorage.getItem("loginStatus")=='true'){
+      this.loginStatus="Log Out"
+    }
+    else{
+      this.loginStatus="Log in"
+    }
   }
 
   openDialog(){
