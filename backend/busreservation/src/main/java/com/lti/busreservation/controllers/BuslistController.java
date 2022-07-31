@@ -23,13 +23,11 @@ public class BuslistController {
 	{
 		return buslistRepository.findAll();
 	}
-  
-  @PostMapping
-  public Buslist createBuslist(@Valid @RequestBody Buslist bs)
-  {
-      return buslistRepository.save(bs);
-  }
 	
-	
+	 @PostMapping("/Buslist")
+	  public Buslist createBuslist(@Valid @RequestBody Buslist bs)
+	  {
+	      return buslistRepository.save(bs);
+	  }
 	
 }
