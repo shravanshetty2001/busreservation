@@ -26,7 +26,8 @@ import { AddbusformComponent } from './addbusform/addbusform.component';
 import { ViewbuslistComponent } from './viewbuslist/viewbuslist.component';
 import { AddbustimetableComponent } from './addbustimetable/addbustimetable.component';
 import { ViewbustimetableComponent } from './viewbustimetable/viewbustimetable.component';
-
+import { AdminforgotpasswordComponent } from './adminforgotpassword/adminforgotpassword.component';
+import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatepassword.component';
 
 
 
@@ -43,7 +44,9 @@ import { ViewbustimetableComponent } from './viewbustimetable/viewbustimetable.c
     AddbusformComponent,
     ViewbuslistComponent,
     AddbustimetableComponent,
-    ViewbustimetableComponent
+    ViewbustimetableComponent,
+    AdminforgotpasswordComponent,
+    AdminupdatepasswordComponent
   ],
   imports: [
     BrowserModule,

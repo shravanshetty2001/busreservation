@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Admin } from '../class/admin';
 import { AdminData } from '../class/admin-data';
+import { AdminStatusdto } from '../class/admin-statusdto';
 import { AdminService } from '../service/admin.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { AdminService } from '../service/admin.service';
 export class AdminComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  adminDto: AdminData;
+  us: AdminData;
   constructor(private formBuilder: FormBuilder, private service: AdminService, private router: Router) { }
   admin: AdminData = new AdminData();
   message: boolean;
@@ -36,9 +36,14 @@ export class AdminComponent implements OnInit {
         (data) => {
           this.message = data['status'];
           this.ermessage=data['errorMessage'];
-          this.adminDto=data['adminDto'];
+          // this.adminDto=data['adminDto'];
+          // console.log(this.adminDto.email);
+          let adminStatusdto:AdminStatusdto=data;
+          this.us=adminStatusdto.admin;
+          console.log(data);
+          console.log(this.us.email);
           console.log(this.message);
-          this.dashboardredirect(this.message,this.ermessage,this.adminDto);
+          this.dashboardredirect(this.message,this.ermessage,this.us);
         }
       );
 
@@ -47,10 +52,10 @@ export class AdminComponent implements OnInit {
     }
     dashboardredirect(_message: boolean,_ermessage:String,_adminDto:AdminData) {
       if (this.message) {
+        
+        sessionStorage.setItem('adminlogininfo',JSON.stringify(this.us));
+        this.us=JSON.parse(sessionStorage.getItem('adminlogininfo'));
         this.router.navigate(['/admindashboard']);
-        sessionStorage.setItem('username',this.adminDto.email);
-        sessionStorage.setItem('status',this.message.toString());
-        alert("Admin Logged In Successfully");
       }
       else {
         alert("Admin Registeration Failed" + this.ermessage);
