@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
     if (this.submitted) {
+      this.showAlert=false;
       console.log(this.userdetailRegisterDto.email);
       console.log(this.userdetailRegisterDto.password);
       this.registerData();

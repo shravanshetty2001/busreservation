@@ -21,6 +21,8 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import {UserService} from './services/user.service'
 import {HttpClientModule} from '@angular/common/http'
 import { AdminregisterComponent } from './adminregister/adminregister.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { PaymentService } from './services/payment.service';
 
 
 
@@ -34,7 +36,8 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     ForgotpasswordComponent,
     AdminComponent,
     AdmindashboardComponent,
-    AdminregisterComponent
+    AdminregisterComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     MatFormFieldModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService,PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
