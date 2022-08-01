@@ -20,6 +20,10 @@ import { AdminComponent } from './admin/admin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AdminregisterComponent } from './adminregister/adminregister.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddbusformComponent } from './addbusform/addbusform.component';
+import { ViewbuslistComponent } from './viewbuslist/viewbuslist.component';
+import { AddbustimetableComponent } from './addbustimetable/addbustimetable.component';
+import { ViewbustimetableComponent } from './viewbustimetable/viewbustimetable.component';
 
 
 
@@ -32,7 +36,11 @@ import { HttpClientModule } from '@angular/common/http';
     ForgotpasswordComponent,
     AdminComponent,
     AdmindashboardComponent,
-    AdminregisterComponent
+    AdminregisterComponent,
+    AddbusformComponent,
+    ViewbuslistComponent,
+    AddbustimetableComponent,
+    ViewbustimetableComponent
   ],
   imports: [
     BrowserModule,

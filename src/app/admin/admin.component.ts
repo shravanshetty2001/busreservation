@@ -13,6 +13,7 @@ import { AdminService } from '../service/admin.service';
 export class AdminComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+  adminDto: AdminData;
   constructor(private formBuilder: FormBuilder, private service: AdminService, private router: Router) { }
   admin: AdminData = new AdminData();
   message: boolean;
@@ -35,17 +36,21 @@ export class AdminComponent implements OnInit {
         (data) => {
           this.message = data['status'];
           this.ermessage=data['errorMessage'];
+          this.adminDto=data['adminDto'];
           console.log(this.message);
-          this.dashboardredirect(this.message,this.ermessage);
+          this.dashboardredirect(this.message,this.ermessage,this.adminDto);
         }
       );
 
     }
 
     }
-    dashboardredirect(_message: boolean,_ermessage:String) {
+    dashboardredirect(_message: boolean,_ermessage:String,_adminDto:AdminData) {
       if (this.message) {
         this.router.navigate(['/admindashboard']);
+        sessionStorage.setItem('username',this.adminDto.email);
+        sessionStorage.setItem('status',this.message.toString());
+        alert("Admin Logged In Successfully");
       }
       else {
         alert("Admin Registeration Failed" + this.ermessage);
