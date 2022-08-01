@@ -21,6 +21,8 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import {UserService} from './services/user.service'
 import {HttpClientModule} from '@angular/common/http'
 import { AdminregisterComponent } from './adminregister/adminregister.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { PaymentService } from './services/payment.service';
 
 import { AddbusformComponent } from './addbusform/addbusform.component';
 import { ViewbuslistComponent } from './viewbuslist/viewbuslist.component';
@@ -41,6 +43,7 @@ import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatep
     AdminComponent,
     AdmindashboardComponent,
     AdminregisterComponent,
+    WalletComponent,
     AddbusformComponent,
     ViewbuslistComponent,
     AddbustimetableComponent,
@@ -60,7 +63,7 @@ import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatep
     MatFormFieldModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService,PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

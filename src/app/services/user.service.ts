@@ -15,9 +15,9 @@ export class UserService {
   constructor(private httpClient:HttpClient) { }
 
   private baseURL = "http://localhost:8080";
-  public doRegistration(userdetailRegisterDto:UserdetailRegisterDto): Observable<Object>{
+  public doRegistration(userdetailRegisterDto:UserdetailRegisterDto): Observable<UserdetailStatusDto>{
 
-    return this.httpClient.post(this.baseURL+"/userdetail",userdetailRegisterDto);
+    return this.httpClient.post<UserdetailStatusDto>(this.baseURL+"/userdetail",userdetailRegisterDto);
 
   }
 

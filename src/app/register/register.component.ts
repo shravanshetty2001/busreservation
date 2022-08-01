@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { UserdetailDto } from '../classcomponents/UserdetailDto';
 import { UserdetailRegisterDto } from '../classcomponents/UserdetailRegisterDto';
+import { UserdetailStatusDto } from '../classcomponents/UserdetailStatusDto';
 import {UserService} from '../services/user.service'
 
 @Component({
@@ -17,10 +18,15 @@ export class RegisterComponent implements OnInit {
   message:any;
   userdetailRegisterDto:UserdetailRegisterDto=new UserdetailRegisterDto();
   userdetails:UserdetailDto[];
+  userdetailStatusDto:UserdetailStatusDto;
+  errorMessage:string;
+  showAlert:boolean=false;
+
 
   constructor(private formBuilder: FormBuilder,
     private controlRegisterDialog:MatDialogRef<RegisterComponent>,
-    private userService:UserService
+    private userService:UserService,
+    private controlLoginDialog:MatDialogRef<RegisterComponent>
     ) { }
 
   ngOnInit(): void {
@@ -41,10 +47,11 @@ export class RegisterComponent implements OnInit {
       return;
     }
     if (this.submitted) {
+      this.showAlert=false;
       console.log(this.userdetailRegisterDto.email);
       console.log(this.userdetailRegisterDto.password);
       this.registerData();
-      this.closeRegisterDialog();
+      
     }
   }
 
@@ -54,15 +61,34 @@ export class RegisterComponent implements OnInit {
 
   public registerData(){
     this.userService.doRegistration(this.userdetailRegisterDto).subscribe(data=>{
+      this.userdetailStatusDto=data
+      this.doRegisterTask(this.userdetailStatusDto);
       console.log(data);
     });
     
   }
+
+  public doRegisterTask(userdetailStatusDto:UserdetailStatusDto){
+    if(this.userdetailStatusDto.status==true){
+      sessionStorage.setItem('loginStatus','true');
+      sessionStorage.setItem('logininfo',JSON.stringify(userdetailStatusDto.userdetailDto));
+      window.location.reload();
+    }
+    else{
+      this.errorMessage=userdetailStatusDto.errorMessge;
+      this.showAlert=true;
+    }
+  }
+
   public getData(){
     this.userService.getUserList().subscribe(data=>{
      console.log(data);
     });
     
+  }
+
+  public closeRegister(){
+    this.controlLoginDialog.close();
   }
 
 }
