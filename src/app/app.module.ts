@@ -24,6 +24,12 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
 import { WalletComponent } from './wallet/wallet.component';
 import { PaymentService } from './services/payment.service';
 
+import { AddbusformComponent } from './addbusform/addbusform.component';
+import { ViewbuslistComponent } from './viewbuslist/viewbuslist.component';
+import { AddbustimetableComponent } from './addbustimetable/addbustimetable.component';
+import { ViewbustimetableComponent } from './viewbustimetable/viewbustimetable.component';
+import { AdminforgotpasswordComponent } from './adminforgotpassword/adminforgotpassword.component';
+import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatepassword.component';
 
 
 
@@ -37,7 +43,13 @@ import { PaymentService } from './services/payment.service';
     AdminComponent,
     AdmindashboardComponent,
     AdminregisterComponent,
-    WalletComponent
+    WalletComponent,
+    AddbusformComponent,
+    ViewbuslistComponent,
+    AddbustimetableComponent,
+    ViewbustimetableComponent,
+    AdminforgotpasswordComponent,
+    AdminupdatepasswordComponent
   ],
   imports: [
     BrowserModule,
