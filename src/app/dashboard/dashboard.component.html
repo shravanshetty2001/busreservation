@@ -46,18 +46,18 @@
                     <span class="form-label">Source</span>
                     <!-- <input class="form-control" type="text" placeholder="Enter a destination"> -->
                    
-                    <select class="form-control" type="text"  id="srcplace" >
+                    <select class="form-control" type="text"  id="srcplace"  #sourceplace>
                       <option class="form-control" type="text" value="" >Enter places</option>
-                          <option class="form-control" type="text" *ngFor="let p of places"  #sourceplace >{{p.placeName}}</option>
+                          <option class="form-control" type="text" *ngFor="let p of places"  >{{p.placeName}}</option>
                     </select>
                   </div>
                   <!--  -->
                   <div class="col-sm-6">
                     <span class="form-label">Destination</span>
                     <!-- <input class="form-control" type="text" placeholder="Enter a destination"> -->
-                    <select class="form-control" type="text"  id="desntplace">
+                    <select class="form-control" type="text"  id="desntplace" #desnplace>
                       <option class="form-control" type="text" value="" >Enter places</option>
-                          <option class="form-control" type="text" *ngFor="let pl of places" #desnplace>{{pl.placeName}}</option>
+                          <option class="form-control" type="text" *ngFor="let pl of places" >{{pl.placeName}}</option>
                     </select>
                   </div>
                   <!---->
