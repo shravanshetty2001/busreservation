@@ -11,12 +11,18 @@ public class Bustimetabledto {
 	
 	Timestamp sDatetime;
 	Timestamp dDatetime;
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	String sourcePlace;
 	String desnPlace;
 	int Blid;
 	int sourceplaceid;
 	int desnplaceid;
-	
+	int price;
 	
 	public Timestamp getsDatetime() {
 		return sDatetime;

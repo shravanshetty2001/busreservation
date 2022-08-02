@@ -37,6 +37,12 @@ public class Bustimetable {
 	@Column(name="price")
 	double price;
 	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	public int getId() {
 		return id;
 	}

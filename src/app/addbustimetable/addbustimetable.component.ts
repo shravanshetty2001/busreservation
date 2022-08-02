@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddBustimetableDto } from '../class/add-bustimetable-dto';
+import { BustimetableService } from '../service/bustimetable.service';
 
 @Component({
   selector: 'app-addbustimetable',
@@ -12,7 +14,8 @@ export class AddbustimetableComponent implements OnInit {
   submitted = false;
   message: boolean;
   ermessage: String;
-  constructor(private formBuilder: FormBuilder) { }
+  addBtt:AddBustimetableDto= new AddBustimetableDto();
+  constructor(private formBuilder: FormBuilder,private service: BustimetableService) { }
 
   onSubmit()
   {
@@ -20,6 +23,18 @@ export class AddbustimetableComponent implements OnInit {
     //  this.message=false;
     if (this.registerForm.invalid) {
       return;
+    }
+    if(this.submitted){
+      console.log(JSON.stringify(this.addBtt));
+
+      // this.service.addBus(this.addBtt).subscribe(
+      //   (data)=>{
+      //     console.log(data);
+      //     alert("Bus time table Added Successfully");
+      //   }
+      // );
+
+
     }
   } 
   get f() { return this.registerForm.controls; }
@@ -31,7 +46,7 @@ export class AddbustimetableComponent implements OnInit {
       ddate: ['', [Validators.required]],
       source: ['', [Validators.required]],
       desn: ['', [Validators.required]],
-      price: ['', [Validators.required,Validators.nullValidator]],
+      price: ['', [Validators.required]],
     });
 
 }

@@ -96,7 +96,7 @@ public class BustimetableServiceImpl implements BustimetableService {
 			bust.setsDatetime(bustimetabledto.getsDatetime());
 			bust.setdDatetime(bustimetabledto.getdDatetime());
 			
-			
+			bust.setPrice(bustimetabledto.getPrice());
 			
 			bustimetableRepository.save(bust);
             
