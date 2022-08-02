@@ -17,5 +17,7 @@ public interface BustimetableService  {
 	Bustimetabledto addbustimtable(Bustimetabledto bustimetabledto);
 
 	List<Bustimetabledto> getAllbuslistdetail();
+
+	List<Bustimetabledto> getAllbuslistadmin(int admin);
 	
 }

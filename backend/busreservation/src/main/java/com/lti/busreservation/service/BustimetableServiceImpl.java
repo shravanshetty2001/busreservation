@@ -121,6 +121,36 @@ public class BustimetableServiceImpl implements BustimetableService {
 	}
 
 		@Override
+		public List<Bustimetabledto> getAllbuslistadmin(int admin) {
+			// TODO Auto-generated method stub
+			
+			List<Bustimetable> bustimetables =bustimetableRepository.findAll();
+		
+			List<Bustimetabledto> bustimetabledtos= new ArrayList<>();
+			
+			for(Bustimetable b : bustimetables) {
+				
+						
+							if(b.getBuslist().getAdmin().getId()==admin)
+							{
+							Bustimetabledto bt = new Bustimetabledto();
+							bt.setBlid(b.getBuslist().getId());
+							bt.setsDatetime(b.getsDatetime());
+							bt.setdDatetime(b.getdDatetime());
+							bt.setSourcePlace(b.getSourcePlace().getPlaceName());
+							bt.setDesnPlace(b.getDesnPlace().getPlaceName());
+							bt.setSourceplaceid(b.getSourcePlace().getId());
+							bt.setDesnplaceid(b.getDesnPlace().getId());
+							bt.setPrice((int) b.getPrice());
+							bustimetabledtos.add(bt);
+							}
+
+			}
+			
+			
+			return bustimetabledtos;
+		}
+		@Override
 		public List<Bustimetabledto> getAllbuslistuser(Bustimetabledto bustimetabledto) {
 			// TODO Auto-generated method stub
 			

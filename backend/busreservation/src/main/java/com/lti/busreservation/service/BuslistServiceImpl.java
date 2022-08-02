@@ -13,6 +13,7 @@ import com.lti.busreservation.dto.Buslistdto;
 import com.lti.busreservation.dto.Bustimetabledto;
 import com.lti.busreservation.dto.UserdetailDto;
 import com.lti.busreservation.dto.UserdetailRegisterDto;
+import com.lti.busreservation.dto.ViewDto;
 import com.lti.busreservation.models.Admin;
 import com.lti.busreservation.models.Buslist;
 import com.lti.busreservation.models.Userdetail;
@@ -87,22 +88,25 @@ public class BuslistServiceImpl implements BuslistService {
 
 
 	@Override
-	public List<Buslistdto> getAdminbus(int adminid) {
-		Optional<Admin> adminEntity = adminRepository.findById(adminid);
-        Admin ad = adminEntity.get();
-        List<Buslist> buslist=ad.getBuslist();
-        List<Buslistdto> bdto=new LinkedList<>();
-        for(Buslist b: buslist)
+	public List<Buslistdto> getAdminbus(int viewDto) {
+		List<Buslist> bl= buslistrepository.findAll();
+		List<Buslistdto> buslistdtos=new LinkedList<Buslistdto>();
+        for(Buslist b : bl)
         {
-        	Buslistdto bd=new Buslistdto();
-        	bd.setId(b.getId());
-        	bd.setBusType(b.getBusType());
-        	bd.setBusNo(b.getBusNo());
-        	bd.setAc(b.isAc());
-        	bd.setSleeper(b.isSleeper());
-        	bdto.add(bd);      	
+        	if(b.getAdmin().getId()==viewDto)
+        	{
+        		Buslistdto buslistdto=new Buslistdto();
+				buslistdto.setId(b.getId());
+				buslistdto.setBusType(b.getBusType());
+				buslistdto.setNoSeats(b.getNoSeats());
+				buslistdto.setBusNo(b.getBusNo());
+				buslistdto.setSleeper(b.isSleeper());
+				buslistdto.setAc(b.isAc());
+				buslistdto.setAdmin(b.getAdmin().getId());				
+				buslistdtos.add(buslistdto);
+        	}
         }
-        return bdto;
+        return buslistdtos;
         
 		
 	}

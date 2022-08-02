@@ -41,22 +41,20 @@
           <!-- source -->
           <div class="form-group">
             <label for="source">Source</label>
-            <input type="number" formControlName="source" class="form-control" [(ngModel)]="addBtt.sourceplaceid"
-              [ngClass]="{ 'is-invalid': submitted && f.source.errors }" />
-              <div *ngIf="submitted && f.source.errors" class="invalid-feedback">
-              <div *ngIf="f.source.errors.required">Source required</div>
-            </div>
+            <select type="number" formControlName="source" id="srcplace" [(ngModel)]="addBtt.sourceplaceid">
+              <option class="form-control" type="number" value="">Enter Source</option>
+              <option class="form-control" type="number" *ngFor="let p of places" [value]="p.pid">{{p.placeName}}</option>
+            </select>
           </div>
 
 
           <!-- destination -->
           <div class="form-group">
             <label for="desn">Destination</label>
-            <input type="number" formControlName="desn" class="form-control" [(ngModel)]="addBtt.desnplaceid"
-              [ngClass]="{ 'is-invalid': submitted && f.desn.errors }" />
-              <div *ngIf="submitted && f.desn.errors" class="invalid-feedback">
-              <div *ngIf="f.desn.errors.required">Source required</div>
-            </div>
+            <select type="number" id="desntplace" formControlName="desn" [(ngModel)]="addBtt.desnplaceid">
+              <option class="form-control" type="number" value="">Enter Destination</option>
+              <option class="form-control" type="number" *ngFor="let p of places" [value]="p.pid">{{p.placeName}}</option>
+            </select>
           </div>
 
           <!-- price -->

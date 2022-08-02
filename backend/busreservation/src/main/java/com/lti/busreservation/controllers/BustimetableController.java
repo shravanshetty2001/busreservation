@@ -37,7 +37,11 @@ import com.lti.busreservation.service.BustimetableService;
 		@PostMapping("/getbustimetable")
 		public List<Bustimetabledto> findBustimetable(@Valid @RequestBody Bustimetabledto bustimetabledto){
 			return bustimetableService.getAllbuslistuser(bustimetabledto);
-			
+		}
+		@PostMapping("/viewbustimetable")
+		public List <Bustimetabledto> adminBudTimetable(@Valid @RequestBody int admin)
+		{
+			return bustimetableService.getAllbuslistadmin(admin);
 		}
 	}
 
