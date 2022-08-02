@@ -1,11 +1,21 @@
 package com.lti.busreservation.service;
 
+import java.util.List;
+
 import com.lti.busreservation.dto.Buslistdto;
-import com.lti.busreservation.dto.Bustimtabledto;
-import com.lti.busreservation.models.Bustimetable;
+import com.lti.busreservation.dto.Bustimetabledto;
 
 public interface BustimetableService  {
-	public Bustimetable bustimetable(Bustimtabledto bustimtabledto);
-	public Bustimetable getBustimetable();
+	
+	
+	
+	
+	
+	
+	List<Bustimetabledto> getAllbuslistuser(Bustimetabledto bustimetabledto);
+
+	Bustimetabledto addbustimtable(Bustimetabledto bustimetabledto);
+
+	List<Bustimetabledto> getAllbuslistdetail();
 	
 }

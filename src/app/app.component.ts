@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { WalletComponent } from './wallet/wallet.component';
 
@@ -16,11 +17,11 @@ export class AppComponent {
   btnStyle: string;
   loginStatus:String;
 
-  constructor(private controlDialog:MatDialog) { 
+  constructor(private controlDialog:MatDialog,private router:Router) { 
 
   }
   ngOnInit() {
-    if(sessionStorage.getItem("loginStatus")=='true'){
+    if(sessionStorage.getItem("loginStatus")=='true' || sessionStorage.getItem("adminloginStatus")=='true'){
       this.loginStatus="Log Out"
     }
     else{
@@ -30,10 +31,10 @@ export class AppComponent {
 
   loginButtonAction(){
 
-    if(sessionStorage.getItem("loginStatus")=='true'){
+    if(sessionStorage.getItem("loginStatus")=='true' || sessionStorage.getItem("adminloginStatus")=='true'){
 
       sessionStorage.clear();
-      window.location.reload();
+      this.router.navigate(['/']);
   
     }
     else{

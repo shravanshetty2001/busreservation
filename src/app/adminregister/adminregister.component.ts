@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminData } from '../class/admin-data';
-import { Adminregister } from '../class/adminregister';
 import { AdminregisterService } from '../service/adminregister.service';
 import { Router } from '@angular/router';
 @Component({
