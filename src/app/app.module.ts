@@ -21,8 +21,14 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import {UserService} from './services/user.service'
 import {HttpClientModule} from '@angular/common/http'
 import { AdminregisterComponent } from './adminregister/adminregister.component';
+
+import { SeatReservationComponent } from './seat-reservation/seat-reservation.component';
+import { UnauthorizedUserDataFormComponent } from './unauthorized-user-data-form/unauthorized-user-data-form.component';
+import { TicketFormComponent } from './ticket-form/ticket-form.component';
+
 import { WalletComponent } from './wallet/wallet.component';
 import { PaymentService } from './services/payment.service';
+
 
 import { AddbusformComponent } from './addbusform/addbusform.component';
 import { ViewbuslistComponent } from './viewbuslist/viewbuslist.component';
@@ -43,6 +49,9 @@ import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatep
     AdminComponent,
     AdmindashboardComponent,
     AdminregisterComponent,
+    SeatReservationComponent,
+    UnauthorizedUserDataFormComponent,
+    TicketFormComponent
     WalletComponent,
     AddbusformComponent,
     ViewbuslistComponent,
@@ -50,6 +59,7 @@ import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatep
     ViewbustimetableComponent,
     AdminforgotpasswordComponent,
     AdminupdatepasswordComponent
+
   ],
   imports: [
     BrowserModule,

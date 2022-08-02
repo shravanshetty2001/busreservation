@@ -29,9 +29,11 @@ public class Payment {
 	@ManyToOne
 	@JoinColumn(name="userid")
 	Userdetail userdetail;
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="bookid")
 	Booking booking;
+
 	public int getId() {
 		return id;
 	}

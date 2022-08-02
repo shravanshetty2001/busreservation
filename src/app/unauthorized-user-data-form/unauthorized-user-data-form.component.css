@@ -1,0 +1,9 @@
+
+.modal-footer{
+    justify-content: space-between;
+    padding: 25px 50px;
+}
+
+.form-group{
+    padding: 15px 5px;
+}
