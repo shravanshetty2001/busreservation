@@ -101,6 +101,7 @@ public class UserdetailServiceImpl implements UserdetailService{
 		userdetail.setName(userdetailRegisterDto.getName());
 		userdetail.setContactNo(userdetailRegisterDto.getContactNo());
 		userdetail.setEmail(userdetailRegisterDto.getEmail());
+		userdetail.setPassword(userdetailRegisterDto.getPassword());
 		Userdetail result;
 		
 		try {

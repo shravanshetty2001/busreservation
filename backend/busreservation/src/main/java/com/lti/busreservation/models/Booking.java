@@ -1,5 +1,6 @@
 package com.lti.busreservation.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Booking {
 	String bookingStatus;
 	@Column(name="seatno")
 	int seatno;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	Payment payment;
 	@ManyToOne
 	@JoinColumn(name="btid")

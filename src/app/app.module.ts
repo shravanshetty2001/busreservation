@@ -21,10 +21,21 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import {UserService} from './services/user.service'
 import {HttpClientModule} from '@angular/common/http'
 import { AdminregisterComponent } from './adminregister/adminregister.component';
+
 import { SeatReservationComponent } from './seat-reservation/seat-reservation.component';
 import { UnauthorizedUserDataFormComponent } from './unauthorized-user-data-form/unauthorized-user-data-form.component';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
 
+import { WalletComponent } from './wallet/wallet.component';
+import { PaymentService } from './services/payment.service';
+
+
+import { AddbusformComponent } from './addbusform/addbusform.component';
+import { ViewbuslistComponent } from './viewbuslist/viewbuslist.component';
+import { AddbustimetableComponent } from './addbustimetable/addbustimetable.component';
+import { ViewbustimetableComponent } from './viewbustimetable/viewbustimetable.component';
+import { AdminforgotpasswordComponent } from './adminforgotpassword/adminforgotpassword.component';
+import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatepassword.component';
 
 
 
@@ -41,6 +52,14 @@ import { TicketFormComponent } from './ticket-form/ticket-form.component';
     SeatReservationComponent,
     UnauthorizedUserDataFormComponent,
     TicketFormComponent
+    WalletComponent,
+    AddbusformComponent,
+    ViewbuslistComponent,
+    AddbustimetableComponent,
+    ViewbustimetableComponent,
+    AdminforgotpasswordComponent,
+    AdminupdatepasswordComponent
+
   ],
   imports: [
     BrowserModule,
@@ -54,9 +73,8 @@ import { TicketFormComponent } from './ticket-form/ticket-form.component';
     MatFormFieldModule,
     HttpClientModule,
     FormsModule
-    
   ],
-  providers: [UserService],
+  providers: [UserService,PaymentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

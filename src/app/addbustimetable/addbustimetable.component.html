@@ -1,0 +1,78 @@
+<div class="bg" [ngStyle]="{'background-image': 'linear-gradient(-225deg, rgba(0,0,0,0.6) 50%, rgba(0,36,61,0.6) 80%)'}">
+  <div class="position-absolute top-50 start-50 translate-middle w-25 ">
+    <div class="card">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="p-3">
+          <div>
+            <h3 class="card-title">Add Bus Timetable</h3>
+          </div>
+          
+          <!-- bus number -->
+          <div class="form-group">
+            <label for="bustype">Bus Number</label>
+            <input type="number" formControlName="bustype" class="form-control" [(ngModel)]="addBtt.Blid"
+            [ngClass]="{ 'is-invalid': submitted && f.bustype.errors }" />
+            <div *ngIf="submitted && f.bustype.errors" class="invalid-feedback">
+              <div *ngIf="f.bustype.errors.required">Bus number</div>
+            </div>
+          </div>
+
+          <!-- start date -->
+          <div class="form-group">
+            <label>Source Date & Time</label>
+            <input type="date" formControlName="sdate" class="form-control" [(ngModel)]="addBtt.sDatetime"
+              [ngClass]="{ 'is-invalid': submitted && f.sdate.errors }" />
+            <div *ngIf="submitted && f.sdate.errors" class="invalid-feedback">
+              <div *ngIf="f.sdate.errors.required">Source Date & Time cannot be blank</div>
+            </div>
+          </div>
+
+          <!-- end date -->
+          <div class="form-group">
+            <label>Destination Date & Time</label>
+            <input type="date" formControlName="ddate" class="form-control" [(ngModel)]="addBtt.dDatetime"
+              [ngClass]="{ 'is-invalid': submitted && f.ddate.errors }" />
+            <div *ngIf="submitted && f.ddate.errors" class="invalid-feedback">
+              <div *ngIf="f.ddate.errors.required">Destination Date & Time cannot be blank</div>
+            </div>
+          </div>
+
+
+          <!-- source -->
+          <div class="form-group">
+            <label for="source">Source</label>
+            <input type="number" formControlName="source" class="form-control" [(ngModel)]="addBtt.sourceplaceid"
+              [ngClass]="{ 'is-invalid': submitted && f.source.errors }" />
+              <div *ngIf="submitted && f.source.errors" class="invalid-feedback">
+              <div *ngIf="f.source.errors.required">Source required</div>
+            </div>
+          </div>
+
+
+          <!-- destination -->
+          <div class="form-group">
+            <label for="desn">Destination</label>
+            <input type="number" formControlName="desn" class="form-control" [(ngModel)]="addBtt.desnplaceid"
+              [ngClass]="{ 'is-invalid': submitted && f.desn.errors }" />
+              <div *ngIf="submitted && f.desn.errors" class="invalid-feedback">
+              <div *ngIf="f.desn.errors.required">Source required</div>
+            </div>
+          </div>
+
+          <!-- price -->
+          <div class="form-group">
+            <label>Price</label>
+            <input type="number" formControlName="price" class="form-control" [(ngModel)]="addBtt.price"
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors}" />
+            <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+              <div *ngIf="f.price.errors.required">Price required</div>
+            </div>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

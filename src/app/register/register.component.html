@@ -7,10 +7,11 @@
         </div>
 
         <div class="modal-body">
+            <p class="alert alert-warning" *ngIf="showAlert">{{errorMessage}}</p>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
                 <!-- email,valid email,email not in database -->
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label>Email</label>
                     <input type="text" formControlName="email" class="form-control" [(ngModel)]="userdetailRegisterDto.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -20,7 +21,7 @@
                 </div>
 
                 <!-- name , min length 6-->
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label>Name</label>
                     <input type="text" formControlName="name" class="form-control" [(ngModel)]="userdetailRegisterDto.name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
                     <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
@@ -31,7 +32,7 @@
 
 
                 <!-- password,min length 6 -->
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label>Password</label>
                     <input type="password" formControlName="password" class="form-control" [(ngModel)]="userdetailRegisterDto.password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
@@ -42,7 +43,7 @@
 
 
                 <!-- contact number -->
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label>Contact Number</label>
                     <input type="number" formControlName="contact" class="form-control" [(ngModel)]="userdetailRegisterDto.contactNo" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }" />
                     <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
@@ -50,11 +51,14 @@
                         <div *ngIf="f.contact.errors.pattern">Contact number shoult be valid</div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary my-3">Submit</button>
 
             </form>
         </div>
 
+        <div class="modal-footer">
+            <button type="button" class="btn btn-dark mx-2" data-dismiss="modal" (click) = "closeRegister()">Close</button>
+        </div>
 
 
     </div>

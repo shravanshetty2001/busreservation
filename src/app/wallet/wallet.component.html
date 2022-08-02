@@ -1,0 +1,27 @@
+<div class="modal-dialog">
+    <div class="modal-content " >
+        <div class="modal-header mt-2" >
+            <h2 class="modal-title" id="myModalLabel" *ngIf="isLogin">Wallet</h2>
+        </div>
+        <div class="modal-header mt-2" >
+            <h2 class="modal-title" id="myModalLabel" *ngIf="!isLogin">Please login to access wallet</h2>
+        </div>
+        <div class="modal-body my-1" *ngIf="isLogin">
+            <h3 class="my-2">Your balance is : {{balance}}</h3>
+            <form>
+                <div class="form-group">
+                    <label for="amountInput" class="display-6">Enter the amount to be added</label>
+                    <input type="number" class="form-control my-1" id="amountInput" name="amountInput" placeholder="Enter Amount" #amt/>
+                    <button type="button" class="btn btn-primary mt-2" (click)="addMoney(amt.value)">Add Money</button>
+                </div>
+            </form>
+    
+        
+        </div>
+        <div class="modal-footer" >
+            
+            <button type="button" class="btn btn-dark mx-2" data-dismiss="modal" (click)="closeWallet()">Close</button>
+        </div>
+
+    </div>
+</div>

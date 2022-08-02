@@ -14,15 +14,15 @@ export class UserService {
 
   constructor(private httpClient:HttpClient) { }
 
-  private baseURL = "http://localhost:8080";
-  public doRegistration(userdetailRegisterDto:UserdetailRegisterDto): Observable<Object>{
+  private baseURL = "http://localhost:8089";
+  public doRegistration(userdetailRegisterDto:UserdetailRegisterDto): Observable<UserdetailStatusDto>{
 
-    return this.httpClient.post(this.baseURL+"/userdetail",userdetailRegisterDto);
+    return this.httpClient.post<UserdetailStatusDto>(this.baseURL+"/userdetail",userdetailRegisterDto);
 
   }
 
   public getUserList(): Observable<UserdetailDto[]>{
-    return this.httpClient.get<UserdetailDto[]>('http://localhost:8080/userdetail');
+    return this.httpClient.get<UserdetailDto[]>('http://localhost:8089/userdetail');
   }
 
   public doLogin(loginDto:LoginDto): Observable<UserdetailStatusDto>{
