@@ -7,29 +7,39 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.busreservation.dto.Bustimetabledto;
 import com.lti.busreservation.models.Bustimetable;
 import com.lti.busreservation.repository.BustimetableRepository;
+import com.lti.busreservation.service.BustimetableService;
 
 	@RestController
 	public class BustimetableController {
 		@Autowired
-		private BustimetableRepository bustimetableRepository;
+		private BustimetableService bustimetableService;
+		
 		@GetMapping("/bustimetable")
-		public List<Bustimetable> getBustimetable()
+		public List<Bustimetabledto> getBustimetable()
 		{
-			return bustimetableRepository.findAll();
+			return bustimetableService.getAllbuslistdetail();
 		}
 		@PostMapping("/bustimetable")
-		public Bustimetable createBustimetable(@Valid @RequestBody Bustimetable bs)
+		public Bustimetabledto createBustimetable(@Valid @RequestBody Bustimetabledto bs)
 		{
-			return bustimetableRepository.save(bs);
+			return bustimetableService.addbustimtable(bs);
 		}
 		
-		
-
+		@PostMapping("/getbustimetable")
+		public List<Bustimetabledto> findBustimetable(@Valid @RequestBody Bustimetabledto bustimetabledto){
+			return bustimetableService.getAllbuslistuser(bustimetabledto);
+			
+		}
 	}
+
+
+
 
 
