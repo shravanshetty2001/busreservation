@@ -54,7 +54,9 @@ export class AdminComponent implements OnInit {
       if (this.message) {
         
         sessionStorage.setItem('adminlogininfo',JSON.stringify(this.us));
+        sessionStorage.setItem('adminloginStatus',"true");
         this.us=JSON.parse(sessionStorage.getItem('adminlogininfo'));
+        
         this.router.navigate(['/admindashboard']);
       }
       else {

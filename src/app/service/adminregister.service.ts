@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AdminData } from '../class/admin-data';
+import { AdminStatusdto } from '../class/admin-statusdto';
 import { Adminregister } from '../class/adminregister';
 
 @Injectable({
@@ -12,8 +14,8 @@ export class AdminregisterService {
 
   constructor(private http:HttpClient) { 
   }
-  public doRegister(adminregister:Adminregister):Observable<BigInteger>
+  public doRegister(admindata:AdminData):Observable<AdminStatusdto>
   {
-    return this.http.post<BigInteger>(this.baseUrl,adminregister);
+    return this.http.post<AdminStatusdto>(this.baseUrl,admindata);
   }
 }

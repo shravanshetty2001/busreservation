@@ -31,22 +31,7 @@ public class BuslistServiceImpl implements BuslistService {
 	private AdminRepository adminRepository;
 	
 	
-	@Override
-	public Buslist addBuslist(Buslistdto buslistdto, Bustimetabledto bustimtabledto) {
-	
-	
-	Buslist busl = new Buslist();
 
-	busl.setNoSeats(buslistdto.getNoSeats());
-	busl.setBusType(buslistdto.getBusType());
-	busl.setBusNo(buslistdto.getBusNo());
-	busl.setSleeper(buslistdto.getSleeper());
-	busl.setAc(buslistdto.getAc());
-	
-	
-	return busl;
-	
-	}
 	
 	@Override
 	public List<Buslistdto> getAllbusdetail() {
@@ -62,8 +47,8 @@ public class BuslistServiceImpl implements BuslistService {
 				buslistdto.setBusType(b.getBusType());
 				buslistdto.setNoSeats(b.getNoSeats());
 				buslistdto.setBusNo(b.getBusNo());
-				buslistdto.setSleeper(b.getSleeper());
-				buslistdto.setAc(b.getAc());
+				buslistdto.setSleeper(b.isSleeper());
+				buslistdto.setAc(b.isAc());
 				
 				
 			}
@@ -91,7 +76,6 @@ public class BuslistServiceImpl implements BuslistService {
 		Admin adm = AdminEntity.get();
         bus.setAdmin(adm);
         adm.getBuslist().add(bus);
-        adminRepository.save(adm);
         buslistrepository.save(bus);
         buslistdto.setId(bus.getId());
         

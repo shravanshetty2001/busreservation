@@ -10,7 +10,6 @@ import com.lti.busreservation.dto.UserdetailStatusDto;
 import com.lti.busreservation.models.Buslist;
 
 public interface BuslistService {
-	public Buslist addBuslist(Buslistdto Buslistdto,Bustimetabledto bustimtabledto);
 	
 	List<Buslistdto> getAllbusdetail();
 	

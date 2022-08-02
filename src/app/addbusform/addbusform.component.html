@@ -1,7 +1,7 @@
 <div class="bg" [ngStyle]="{'background-image': 'linear-gradient(-225deg, rgba(0,0,0,0.6) 50%, rgba(0,36,61,0.6) 80%)'}">
     <div class="position-absolute top-50 start-50 translate-middle w-25 ">
       <div class="card">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="addBusForm" (ngSubmit)="onSubmit()">
             <div class="p-3">
                 <div>
                     <h3 class="card-title">Register</h3>
@@ -9,7 +9,7 @@
             <!-- email,valid email,email not in database -->
             <div class="form-group">
                 <label>Bus Type</label>
-                <input type="text" formControlName="bustype" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bustype.errors }"/>
+                <input type="text" formControlName="bustype" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bustype.errors }" [(ngModel)]="bus.busType" />
                 <div *ngIf="submitted && f.bustype.errors" class="invalid-feedback">
                     <div *ngIf="f.bustype.errors.required">Bus type required</div>
                 </div>
@@ -18,7 +18,7 @@
             <!-- name , min length 6-->
             <div class="form-group">
                 <label>No of Seats</label>
-                <input type="number" formControlName="nos" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nos.errors }"/>
+                <input type="number" formControlName="nos" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nos.errors }" [(ngModel)]="bus.noSeats"/>
                 <div *ngIf="submitted && f.nos.errors" class="invalid-feedback">
                     <div *ngIf="f.nos.errors.required">No of seats is required</div>
                     <div *ngIf="f.nos.errors.nullValidator">No of seats cannot be null</div>
@@ -29,8 +29,8 @@
             <!-- password,min length 6 -->
             <div class="form-group">
                 <label>Bus No</label>
-                <input type="text" formControlName="busno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.busno.errors }"/>
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <input type="text" formControlName="busno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.busno.errors }" [(ngModel)]="bus.busNo"/>
+                <div *ngIf="submitted && f.busno.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Bus Number is required</div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
 
             <!-- contact number -->
             <div class="form-group my-3">
-                <input type="checkbox" id="sleeper" name="sleeper" value="true">
+                <input type="checkbox" id="sleeper" name="sleeper" value="true" >
                 <label for="sleeper">Sleeper</label>
             </div>
             <div class="form-group my-3">
