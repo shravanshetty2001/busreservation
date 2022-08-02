@@ -7,5 +7,5 @@ public interface BookingService {
 
 	public BookingSeatDto makeBooking(BookingSeatDto bookingSeatDto);
 	public BookingSeatDto findBookingById(int id);
-
+	public BookingSeatDto authorizedUserMakeBooking(BookingSeatDto bookingSeatDto);
 }

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 import {MatInputModule} from '@angular/material/input';
@@ -21,6 +21,9 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import {UserService} from './services/user.service'
 import {HttpClientModule} from '@angular/common/http'
 import { AdminregisterComponent } from './adminregister/adminregister.component';
+import { SeatReservationComponent } from './seat-reservation/seat-reservation.component';
+import { UnauthorizedUserDataFormComponent } from './unauthorized-user-data-form/unauthorized-user-data-form.component';
+import { TicketFormComponent } from './ticket-form/ticket-form.component';
 
 
 
@@ -34,7 +37,10 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     ForgotpasswordComponent,
     AdminComponent,
     AdmindashboardComponent,
-    AdminregisterComponent
+    AdminregisterComponent,
+    SeatReservationComponent,
+    UnauthorizedUserDataFormComponent,
+    TicketFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,9 @@ import { AdminregisterComponent } from './adminregister/adminregister.component'
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+    
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

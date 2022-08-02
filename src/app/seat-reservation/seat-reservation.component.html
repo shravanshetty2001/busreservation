@@ -1,0 +1,250 @@
+
+  <div class="container-fluid mb-5">
+    <div class="card" style="height: 100%;">
+      <div class="container" style="width:100%;">
+        <div *ngIf="alert" class="alert alert-danger ">You can buy only 1 seats in one time </div>
+                <div *ngIf="noSeatSelected" class="alert alert-danger ">Please Select Seat</div>
+        <div class="row justify-content-center">
+          <div class="col-md-9">
+          <div class="seat_plan_wrap" 
+                style=" display: flex;
+                        justify-content: space-between;" 
+                        >
+            <div class="row">
+              <div class="disp-seat">
+                
+                <h6>Select Seats </h6>
+                <!-- <div class="handle">
+                  <img src="../assets/img/handle.png" alt="">
+                </div> -->
+                <div class="seats">
+                  <div class="row1">
+                    <ul style="list-style: none;">
+                      <li>
+                        <a (click)="Seat('1')" id="1" title="[1]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="Seat('2')" id="2" title="[2]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[3]" (click)="Seat('3')" id="3">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[4]" (click)="Seat('4')" id="4">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[5]" (click)="Seat('5')" id="5">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[6]" (click)="Seat('6')" id="6">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[7]" (click)="Seat('7')" id="7">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[8]" (click)="Seat('8')" id="8">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[9]" (click)="Seat('9')" id="9">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="row2">
+                    <ul style="list-style: none;">
+                      <li>
+                        <a (click)="Seat('10')" id="10" title="[10]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="Seat('11')" id="11" title="[11]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[12]" (click)="Seat('12')" id="12">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[13]" (click)="Seat('13')" id="13">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[14]" (click)="Seat('14')" id="14">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[15]" (click)="Seat('15')" id="15">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[16]" (click)="Seat('16')" id="16">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[17]" (click)="Seat('17')" id="17">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[18]" (click)="Seat('18')" id="18">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="row3">
+                    <ul style="list-style: none;">
+                      <li>
+                        <a (click)="Seat('20')" id="20" title="[20]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="Seat('21')" id="21" title="[21]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[22]" (click)="Seat('22')" id="22">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[23]" (click)="Seat('23')" id="23">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[24]" (click)="Seat('24')" id="24">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[25]" (click)="Seat('6')" id="25">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[26]" (click)="Seat('26')" id="26">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[27]" (click)="Seat('27')" id="27">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[28]" (click)="Seat('28')" id="28">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="row4">
+                    <ul style="list-style: none;">
+                      <li>
+                        <a (click)="Seat('29')" id="29" title="[29]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="Seat('30')" id="30" title="[30]">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[31]" (click)="Seat('31')" id="31">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[32]" (click)="Seat('32')" id="32">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[34]" (click)="Seat('34')" id="34">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[35]" (click)="Seat('35')" id="35">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[36]" (click)="Seat('36')" id="36">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[37]" (click)="Seat('37')" id="37">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a title="[38]" (click)="Seat('38')" id="38">
+                          <img src="../assets/img/bseat.png" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                </div>
+              </div>
+              <div class="disp-data col-md-6 ">
+              <div class="seat_plan">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Seats No</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let s of showSeatList">
+                      <td>{{s.seatno}}</td>
+                     
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+                <div class="total  bg-default" >
+                  <b>Total: {{showSeatList.length}}</b>
+                </div>
+                <div class="row">
+                  <button (click)="confirmJourney()"class="btn mt-3 ml-3 btn-primary btn-sm btn-block ">Confirm</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 

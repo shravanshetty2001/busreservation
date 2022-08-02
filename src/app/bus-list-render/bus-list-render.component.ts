@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UnauthorizedUserDataFormComponent } from '../unauthorized-user-data-form/unauthorized-user-data-form.component';
 
 @Component({
   selector: 'app-bus-list-render',
@@ -7,11 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusListRenderComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    private controlDialog:MatDialog,
+    
+  ) { }
 
   buslogo:String="assets/img/buslogo.jpeg"
 
   ngOnInit(): void {
+   
+  }
+
+
+  bookingAction(){
+    this.controlDialog.open(UnauthorizedUserDataFormComponent,{
+      disableClose: true ,
+      width: '31%',
+      height: '45%'
+
+    });
   }
 
 }

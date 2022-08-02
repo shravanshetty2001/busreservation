@@ -27,6 +27,7 @@ public class Payment {
 	@ManyToOne
 	@JoinColumn(name="userid")
 	Userdetail userdetail;
+	
 	public int getId() {
 		return id;
 	}
