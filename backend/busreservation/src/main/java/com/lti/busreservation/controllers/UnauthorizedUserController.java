@@ -1,6 +1,5 @@
 package com.lti.busreservation.controllers;
 
-import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lti.busreservation.dto.UnauthorizedUserDto;
 import com.lti.busreservation.models.Unauthorizeduser;
 import com.lti.busreservation.repository.UnauthorizedUserRepository;
-import com.lti.busreservation.service.UnauthorizedUserService;
+import com.lti.busreservation.services.UnauthorizedUserService;
 
 @RestController
 @CrossOrigin(origins = "*")

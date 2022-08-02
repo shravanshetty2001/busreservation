@@ -1,7 +1,9 @@
 package com.lti.busreservation.service;
 
 
-	import java.util.ArrayList;
+	import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -81,21 +83,24 @@ public class BustimetableServiceImpl implements BustimetableService {
 			// TODO Auto-generated method stub
 			
 			Bustimetable bust = new Bustimetable();
+			System.out.println(bustimetabledto.getBlid());
 			Optional<Buslist> buslistEntity = buslistrepository.findById(bustimetabledto.getBlid());
-			Buslist buslist=buslistEntity.get();
+			System.out.println(buslistEntity);
+			Buslist buslist = buslistEntity.get();
 			Optional<Place> srcplaceEntity = placerepository.findById(bustimetabledto.getSourceplaceid());
 			Place srcplace = srcplaceEntity.get();
 			bust.setSourcePlace(srcplace);
 			
 			Optional<Place> destplaceEntity = placerepository.findById(bustimetabledto.getDesnplaceid());
 			Place desnplace = destplaceEntity.get();
-			
+			bust.setBuslist(buslist);
 			bust.setDesnPlace(desnplace);
 			
 			bust.setsDatetime(bustimetabledto.getsDatetime());
 			bust.setdDatetime(bustimetabledto.getdDatetime());
 			
 			bust.setPrice(bustimetabledto.getPrice());
+			buslist.getBustimetable().add(bust);
 			
 			bustimetableRepository.save(bust);
             
@@ -120,16 +125,22 @@ public class BustimetableServiceImpl implements BustimetableService {
 			// TODO Auto-generated method stub
 			
 			List<Bustimetable> bustimetables =bustimetableRepository.findAll();
+			System.out.println(bustimetables);
 			List<Bustimetabledto> bustimetabledtos= new ArrayList<>();
 			
 			for(Bustimetable b : bustimetables) {
-				if(b.getSourcePlace().getPlaceName().equals(bustimetabledto.getSourcePlace())){
-					
-					if(b.getDesnPlace().getPlaceName().equals(bustimetabledto.getDesnPlace())) {
-						Date date = new Date(b.getsDatetime().getTime());
+				System.out.println(b.getSourcePlace().getPlaceName()+"xxxxxxxxx"+bustimetabledto.getSourcePlace().trim());
+				if(b.getSourcePlace().getPlaceName().trim().equalsIgnoreCase(bustimetabledto.getSourcePlace().trim())){
+					System.out.println("int first if");
+					if(b.getDesnPlace().getPlaceName().trim().equalsIgnoreCase(bustimetabledto.getDesnPlace().trim())) {
+						System.out.println("int second if");
+						DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+						String strdate = df.format(b.getsDatetime());
+						String strdate1 = df.format(bustimetabledto.getsDatetime());
+
+						System.out.println(strdate+"     "+strdate1);
 						
-						Date date1 = new Date(b.getdDatetime().getTime());
-						if(date1.equals(date)) {
+						if(strdate.equals(strdate1)) {
 							Bustimetabledto bt = new Bustimetabledto();
 							bt.setBlid(b.getId());
 							bt.setsDatetime(b.getsDatetime());

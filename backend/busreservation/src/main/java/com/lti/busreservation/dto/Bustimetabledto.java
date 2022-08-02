@@ -11,19 +11,27 @@ public class Bustimetabledto {
 	
 	Timestamp sDatetime;
 	Timestamp dDatetime;
+	
+	String sourcePlace;
+	String desnPlace;
+	int blid;
+	int sourceplaceid;
+	
+	int desnplaceid;
+	int price;
+	
+	public int getBlid() {
+		return blid;
+	}
+	public void setBlid(int blid) {
+		this.blid = blid;
+	}
 	public int getPrice() {
 		return price;
 	}
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	String sourcePlace;
-	String desnPlace;
-	int Blid;
-	int sourceplaceid;
-	int desnplaceid;
-	int price;
-	
 	public Timestamp getsDatetime() {
 		return sDatetime;
 	}
@@ -48,12 +56,7 @@ public class Bustimetabledto {
 	public void setDesnPlace(String desnPlace) {
 		this.desnPlace = desnPlace;
 	}
-	public int getBlid() {
-		return Blid;
-	}
-	public void setBlid(int blid) {
-		Blid = blid;
-	}
+	
 	public int getSourceplaceid() {
 		return sourceplaceid;
 	}

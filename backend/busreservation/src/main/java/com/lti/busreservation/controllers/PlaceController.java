@@ -5,28 +5,33 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.busreservation.dto.Placedto;
 import com.lti.busreservation.models.Place;
 import com.lti.busreservation.repository.PlaceRepository;
+import com.lti.busreservation.services.PlaceService;
 
 @RestController
+@CrossOrigin("*")
 public class PlaceController {
 	@Autowired
-	private PlaceRepository placeRepository;
+	private PlaceService placeService;
 	
-	@GetMapping("/place")
-	public List<Place> getPlace()
+	
+	@GetMapping("/getplaces")
+	public List<Placedto> getPlace()
 	{
-		return placeRepository.findAll();
+		return placeService.getPlace();
 	}
 	
-	@PostMapping("/place")
-	public Place createPlace(@Valid @RequestBody Place pl)
+	@PostMapping("/addplace")
+	public boolean createPlace(@Valid @RequestBody Placedto placedto)
 	{
-		return placeRepository.save(pl);
+		return placeService.addPlace(placedto);
 	}
 }

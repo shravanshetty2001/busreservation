@@ -1,15 +1,26 @@
-package com.lti.busreservation.service;
+package com.lti.busreservation.services;
 
+
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.busreservation.dto.BookingSeatDto;
+import com.lti.busreservation.dto.TicketDto;
 import com.lti.busreservation.models.Booking;
+import com.lti.busreservation.models.Bustimetable;
+import com.lti.busreservation.models.Payment;
 import com.lti.busreservation.models.Unauthorizeduser;
+import com.lti.busreservation.models.Userdetail;
 import com.lti.busreservation.repository.BookingRepository;
+import com.lti.busreservation.repository.BustimetableRepository;
+import com.lti.busreservation.repository.PaymentRepository;
 import com.lti.busreservation.repository.UnauthorizedUserRepository;
+import com.lti.busreservation.repository.UserdetailRepository;
 
 @Service
 public class BookingServiceImpl implements BookingService{
@@ -20,21 +31,45 @@ public class BookingServiceImpl implements BookingService{
 	@Autowired
 	private UnauthorizedUserRepository unauthorizedUserRepository;
 	
+	@Autowired
+	private BustimetableRepository bustimetableRepository;
+	
+	@Autowired
+	private PaymentRepository paymentRepository;
+	
+	@Autowired
+	private UserdetailRepository userdetailRepository;
+	
 	@Override
-	public BookingSeatDto makeBooking(BookingSeatDto bookingSeatDto) {
+	public TicketDto makeBooking(BookingSeatDto bookingSeatDto) {
 		// TODO Auto-generated method stub
 
 		Booking book = new Booking();
 		Unauthorizeduser unauthorizeduser = new Unauthorizeduser();
+		Payment pymnt = new Payment();
+		Bustimetable bustimetable = new Bustimetable();
 		
 		book.setBookingStatus("Confirmed");
 
 		book.setSeatno(bookingSeatDto.getSeatno());
 		
-		book.setPayment(null);
+		Date date = new Date();
+	    Timestamp timestamp = new Timestamp(date.getTime());
+	    
+	    Optional<Bustimetable> bustimetableEntity = bustimetableRepository.findById(bookingSeatDto.getBustimetable());
+	    bustimetable = bustimetableEntity.get();
 		
-		book.setBustimetable(null);
+		pymnt.setAmount(bustimetable.getPrice());
+		pymnt.setPaymentType(true);
+		pymnt.setPaymentDatetime(timestamp);
+		pymnt.setUserdetail(null);
+		
+		book.setPayment(pymnt);
+		
+		book.setBustimetable(bustimetable);
 
+		bustimetable.getBooking().add(book);
+				
 		unauthorizeduser.setBooking(book);
 		unauthorizeduser.setEmail(bookingSeatDto.getEmail());
 		unauthorizeduser.setPhoneno(bookingSeatDto.getPhoneno());
@@ -43,16 +78,30 @@ public class BookingServiceImpl implements BookingService{
 		
 		
 		bookingRepository.save(book);
-		Unauthorizeduser result =unauthorizedUserRepository.save(unauthorizeduser);		
+		bustimetableRepository.save(bustimetable);
+		paymentRepository.save(pymnt);
 		
-		BookingSeatDto seatDto = new BookingSeatDto();
-		seatDto.setSeatno(result.getBooking().getSeatno());
-		seatDto.setEmail(result.getEmail());
-		seatDto.setPhoneno(result.getPhoneno());
-		seatDto.setBustimetable(0);
-//		seatDto.setUserId(unauthorizeduser.getId());
+		Unauthorizeduser result =unauthorizedUserRepository.save(unauthorizeduser);	
 		
-		return seatDto;
+//		BookingSeatDto seatDto = new BookingSeatDto();
+//		seatDto.setSeatno(result.getBooking().getSeatno());
+//		seatDto.setEmail(result.getEmail());
+//		seatDto.setPhoneno(result.getPhoneno());
+//		seatDto.setBustimetable(0);
+		
+		TicketDto ticket = new TicketDto();
+		ticket.setSeatno(result.getBooking().getSeatno());
+		ticket.setRoute(bustimetable.getSourcePlace().getPlaceName()+" to "+bustimetable.getDesnPlace().getPlaceName());
+		ticket.setSourceplace(bustimetable.getSourcePlace().getPlaceName());
+		ticket.setDestplace(bustimetable.getDesnPlace().getPlaceName());
+		ticket.setDate(bustimetable.getsDatetime().getDate());
+		ticket.setTime(bustimetable.getsDatetime().getTime());
+		ticket.setPhoneno(bookingSeatDto.getPhoneno());
+		ticket.setName(bookingSeatDto.getUsername());
+		ticket.setBookedOn(pymnt.getPaymentDatetime().getDate());
+		ticket.setPrice(bustimetable.getPrice());
+
+		return ticket;
 	}
 
 	@Override
@@ -70,4 +119,58 @@ public class BookingServiceImpl implements BookingService{
 		return seatDto;
 	}
 
+	@Override
+	public TicketDto authorizedUserMakeBooking(BookingSeatDto bookingSeatDto) {
+		// TODO Auto-generated method stub
+		
+		Booking book = new Booking();
+		Userdetail authorizeduser = new Userdetail();
+		Payment payment = new Payment();
+		
+		book.setBookingStatus("Confirmed");
+
+		book.setSeatno(bookingSeatDto.getSeatno());
+		
+		Date date = new Date();
+	    Timestamp timestamp = new Timestamp(date.getTime());
+		
+		Optional<Userdetail> userEntity = userdetailRepository.findById(bookingSeatDto.getUserId());
+		Userdetail user = userEntity.get();
+		
+		Optional<Bustimetable> bustimetableEntity = bustimetableRepository.findById(bookingSeatDto.getBustimetable());
+		Bustimetable bustimetable = bustimetableEntity.get();
+		
+		payment.setAmount(bustimetable.getPrice());
+		payment.setPaymentType(true);
+		payment.setPaymentDatetime(timestamp);
+		payment.setUserdetail(user);
+		
+		book.setPayment(payment);
+		
+		book.setBustimetable(bustimetable);
+
+		book.setUnauthorizeduser(null);
+		
+		bustimetable.getBooking().add(book);
+		
+		bookingRepository.save(book);
+		bustimetableRepository.save(bustimetable);
+		userdetailRepository.save(user);
+			
+		
+		TicketDto ticket = new TicketDto();
+		ticket.setSeatno(bookingSeatDto.getSeatno());
+		ticket.setRoute(bustimetable.getSourcePlace().getPlaceName()+" to "+bustimetable.getDesnPlace().getPlaceName());
+		ticket.setSourceplace(bustimetable.getSourcePlace().getPlaceName());
+		ticket.setDestplace(bustimetable.getDesnPlace().getPlaceName());
+		ticket.setDate(bustimetable.getsDatetime().getDate());
+		ticket.setTime(bustimetable.getsDatetime().getTime());
+		ticket.setPhoneno(bookingSeatDto.getPhoneno());
+		ticket.setName(bookingSeatDto.getUsername());
+		ticket.setBookedOn(payment.getPaymentDatetime().getDate());
+		ticket.setPrice(bustimetable.getPrice());
+
+		return ticket;
+		
+	}
 }

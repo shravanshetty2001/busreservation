@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddBustimetableDto } from '../class/add-bustimetable-dto';
 import { Place } from '../class/place';
+import { CheckAvailabilityService } from '../services/check-availability.service';
 import { PlacesService } from '../services/places.service';
+import { ResultService } from '../services/result.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +15,7 @@ import { PlacesService } from '../services/places.service';
 export class DashboardComponent implements OnInit {
 
   places: Place[] = [];
+  bustimetablelist: AddBustimetableDto[] = [];
   addbustimetableDto: AddBustimetableDto = new AddBustimetableDto();
   checkavailabilityForm: FormGroup;
   sourceplace:String;
@@ -22,7 +25,10 @@ export class DashboardComponent implements OnInit {
   constructor(
     private route: Router,
     private placeservices: PlacesService,
-    private formBuilder : FormBuilder
+    private resultservice: ResultService,
+    private formBuilder : FormBuilder,
+    private checkavailabilityservice: CheckAvailabilityService,
+    
   ) { }
 
   ngOnInit(): void {
@@ -48,24 +54,45 @@ export class DashboardComponent implements OnInit {
     console.log(this.places);
   }
 
-  checkavailability( jd:String)
+  checkavailability()
   {
-    let dp:any = (<HTMLInputElement>document.getElementById("srcplace")).value;
-    let sp:any = (<HTMLInputElement>document.getElementById("desntplace")).value;
+    let sp:any = (<HTMLInputElement>document.getElementById("srcplace")).value;
+    let dp:any = (<HTMLInputElement>document.getElementById("desntplace")).value;
+    let jd:any = (<HTMLInputElement>document.getElementById("journeyDate")).value;
     
     let bstb : AddBustimetableDto = {
       sDatetime: jd,
       sourcePlace: sp,
       desnPlace: dp,
       dDatetime: undefined,
-      Blid: 0,
+      blid: 0,
       sourceplaceid: 0,
       desnplaceid: 0,
-      price: 0
-    }
-      console.log(bstb.sDatetime);
-      console.log(bstb.desnPlace);
-      console.log(bstb.sourcePlace);
-  }
+      price: 0,
 
+    }
+      this.checkavailabilityservice.getBusForUser(bstb).subscribe(
+        (items)=>{
+          console.log(items);
+          items.map(item => {
+            let ptr : AddBustimetableDto = {
+              sDatetime:item.sDatetime,
+              dDatetime:item.dDatetime,
+              sourcePlace:item.sourcePlace,
+              desnPlace:item.desnPlace,
+              blid: item.blid,
+              sourceplaceid: item.sourceplaceid,
+              desnplaceid:item.desnplaceid,
+              price:item.price,
+            }
+            this.bustimetablelist.push(ptr);
+            
+          }
+        )
+          this.resultservice.result = this.bustimetablelist;
+          this.route.navigate(['/buslist']);
+        }
+        
+      );
+  }
 }

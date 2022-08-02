@@ -36,7 +36,16 @@ public class Bustimetable {
 	List<Booking> booking;
 	@Column(name="price")
 	double price;
+	@ManyToOne
+	@JoinColumn(name="buslistFK")
+	Buslist buslist;
 	
+	public Buslist getBuslist() {
+		return buslist;
+	}
+	public void setBuslist(Buslist buslist) {
+		this.buslist = buslist;
+	}
 	public double getPrice() {
 		return price;
 	}

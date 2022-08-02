@@ -1,11 +1,12 @@
-package com.lti.busreservation.service;
+package com.lti.busreservation.services;
 
 import com.lti.busreservation.dto.BookingSeatDto;
+import com.lti.busreservation.dto.TicketDto;
 
 
 public interface BookingService {
 
-	public BookingSeatDto makeBooking(BookingSeatDto bookingSeatDto);
+	public TicketDto makeBooking(BookingSeatDto bookingSeatDto);
 	public BookingSeatDto findBookingById(int id);
-	public BookingSeatDto authorizedUserMakeBooking(BookingSeatDto bookingSeatDto);
+	public TicketDto authorizedUserMakeBooking(BookingSeatDto bookingSeatDto);
 }

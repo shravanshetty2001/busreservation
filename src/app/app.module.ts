@@ -36,6 +36,9 @@ import { AddbustimetableComponent } from './addbustimetable/addbustimetable.comp
 import { ViewbustimetableComponent } from './viewbustimetable/viewbustimetable.component';
 import { AdminforgotpasswordComponent } from './adminforgotpassword/adminforgotpassword.component';
 import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatepassword.component';
+import { CommonModule } from '@angular/common';
+import { ResulCardComponent } from './resul-card/resul-card.component';
+import { BusListRenderComponent } from './bus-list-render/bus-list-render.component';
 
 
 
@@ -51,14 +54,16 @@ import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatep
     AdminregisterComponent,
     SeatReservationComponent,
     UnauthorizedUserDataFormComponent,
-    TicketFormComponent
+    TicketFormComponent,
     WalletComponent,
     AddbusformComponent,
     ViewbuslistComponent,
     AddbustimetableComponent,
     ViewbustimetableComponent,
     AdminforgotpasswordComponent,
-    AdminupdatepasswordComponent
+    AdminupdatepasswordComponent,
+    ResulCardComponent,
+    BusListRenderComponent
 
   ],
   imports: [
@@ -72,7 +77,8 @@ import { AdminupdatepasswordComponent } from './adminupdatepassword/adminupdatep
     MatCardModule,
     MatFormFieldModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [UserService,PaymentService],
   bootstrap: [AppComponent]

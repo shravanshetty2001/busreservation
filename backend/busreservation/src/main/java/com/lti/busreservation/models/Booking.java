@@ -30,6 +30,13 @@ public class Booking {
 	@OneToOne
 	@JoinColumn(name="unid")
 	Unauthorizeduser unauthorizeduser;
+	
+	public Unauthorizeduser getUnauthorizeduser() {
+		return unauthorizeduser;
+	}
+	public void setUnauthorizeduser(Unauthorizeduser unauthorizeduser) {
+		this.unauthorizeduser = unauthorizeduser;
+	}
 	public int getId() {
 		return id;
 	}

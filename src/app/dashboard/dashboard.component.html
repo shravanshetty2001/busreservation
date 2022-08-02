@@ -66,12 +66,12 @@
                   <div class="col-sm-12 my-3">
                     <div class="form-group">
                       <span class="form-label">Journey Date</span>
-                      <input class="form-control" type="date"  #journeyDate> 
+                      <input class="form-control"  type="date"  id="journeyDate"> 
                     </div>
                  </div>
                 </div>   
                 <div class="form-btn">
-                  <button class="submit-btn" (click)="checkavailability(journeyDate.value)">Check availability</button>
+                  <button class="submit-btn" (click)="checkavailability()">Check availability</button>
                 </div>
               </form>
             </div>

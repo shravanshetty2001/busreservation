@@ -46,12 +46,14 @@ public class BuslistServiceImpl implements BuslistService {
 			for(Buslist b : bl) {
 				
 				Buslistdto buslistdto=new Buslistdto();
+				buslistdto.setId(b.getId());
 				buslistdto.setBusType(b.getBusType());
 				buslistdto.setNoSeats(b.getNoSeats());
 				buslistdto.setBusNo(b.getBusNo());
 				buslistdto.setSleeper(b.isSleeper());
 				buslistdto.setAc(b.isAc());
-				
+				buslistdto.setAdmin(b.getAdmin().getId());				
+				buslistdtos.add(buslistdto);
 				
 			}
 			return buslistdtos;
