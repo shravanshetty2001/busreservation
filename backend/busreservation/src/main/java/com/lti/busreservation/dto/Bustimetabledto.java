@@ -16,10 +16,18 @@ public class Bustimetabledto {
 	String desnPlace;
 	int blid;
 	int sourceplaceid;
-	
+	int id;	
 	int desnplaceid;
 	int price;
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getBlid() {
 		return blid;
 	}

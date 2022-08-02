@@ -46,7 +46,6 @@ public class BookingServiceImpl implements BookingService{
 
 		Booking book = new Booking();
 		Unauthorizeduser unauthorizeduser = new Unauthorizeduser();
-		Payment pymnt = new Payment();
 		Bustimetable bustimetable = new Bustimetable();
 		
 		book.setBookingStatus("Confirmed");
@@ -59,12 +58,8 @@ public class BookingServiceImpl implements BookingService{
 	    Optional<Bustimetable> bustimetableEntity = bustimetableRepository.findById(bookingSeatDto.getBustimetable());
 	    bustimetable = bustimetableEntity.get();
 		
-		pymnt.setAmount(bustimetable.getPrice());
-		pymnt.setPaymentType(true);
-		pymnt.setPaymentDatetime(timestamp);
-		pymnt.setUserdetail(null);
 		
-		book.setPayment(pymnt);
+		book.setPayment(null);
 		
 		book.setBustimetable(bustimetable);
 
@@ -79,7 +74,7 @@ public class BookingServiceImpl implements BookingService{
 		
 		bookingRepository.save(book);
 		bustimetableRepository.save(bustimetable);
-		paymentRepository.save(pymnt);
+
 		
 		Unauthorizeduser result =unauthorizedUserRepository.save(unauthorizeduser);	
 		
@@ -98,7 +93,7 @@ public class BookingServiceImpl implements BookingService{
 		ticket.setTime(bustimetable.getsDatetime().getTime());
 		ticket.setPhoneno(bookingSeatDto.getPhoneno());
 		ticket.setName(bookingSeatDto.getUsername());
-		ticket.setBookedOn(pymnt.getPaymentDatetime().getDate());
+		ticket.setBookedOn(timestamp);
 		ticket.setPrice(bustimetable.getPrice());
 
 		return ticket;
@@ -151,6 +146,8 @@ public class BookingServiceImpl implements BookingService{
 
 		book.setUnauthorizeduser(null);
 		
+		payment.setBooking(book);
+		
 		bustimetable.getBooking().add(book);
 		
 		bookingRepository.save(book);
@@ -167,7 +164,7 @@ public class BookingServiceImpl implements BookingService{
 		ticket.setTime(bustimetable.getsDatetime().getTime());
 		ticket.setPhoneno(bookingSeatDto.getPhoneno());
 		ticket.setName(bookingSeatDto.getUsername());
-		ticket.setBookedOn(payment.getPaymentDatetime().getDate());
+		ticket.setBookedOn(timestamp);
 		ticket.setPrice(bustimetable.getPrice());
 
 		return ticket;

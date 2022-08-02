@@ -69,21 +69,22 @@ export class DashboardComponent implements OnInit {
       sourceplaceid: 0,
       desnplaceid: 0,
       price: 0,
-
+      id: undefined
     }
       this.checkavailabilityservice.getBusForUser(bstb).subscribe(
         (items)=>{
           console.log(items);
           items.map(item => {
             let ptr : AddBustimetableDto = {
-              sDatetime:item.sDatetime,
-              dDatetime:item.dDatetime,
-              sourcePlace:item.sourcePlace,
-              desnPlace:item.desnPlace,
+              sDatetime: item.sDatetime,
+              dDatetime: item.dDatetime,
+              sourcePlace: item.sourcePlace,
+              desnPlace: item.desnPlace,
               blid: item.blid,
               sourceplaceid: item.sourceplaceid,
-              desnplaceid:item.desnplaceid,
-              price:item.price,
+              desnplaceid: item.desnplaceid,
+              price: item.price,
+              id: item.id
             }
             this.bustimetablelist.push(ptr);
             

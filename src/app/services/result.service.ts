@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class ResultService {
 
   result: any;
+  busno : any;
+  price: Number;
 
   constructor() { }
 

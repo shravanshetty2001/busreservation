@@ -2,6 +2,7 @@ export class Seat {
     seatno: Number;
     email: string;
     phoneno: string;
-    name: string;
-    bustimetable: Number
+    username: string;
+    bustimetable: Number;
+    userId: Number
 }

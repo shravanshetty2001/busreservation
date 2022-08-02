@@ -142,7 +142,8 @@ public class BustimetableServiceImpl implements BustimetableService {
 						
 						if(strdate.equals(strdate1)) {
 							Bustimetabledto bt = new Bustimetabledto();
-							bt.setBlid(b.getId());
+							bt.setBlid(b.getBuslist().getId());
+							bt.setId(b.getId());
 							bt.setsDatetime(b.getsDatetime());
 							bt.setdDatetime(b.getdDatetime());
 							bt.setSourcePlace(b.getSourcePlace().getPlaceName());
