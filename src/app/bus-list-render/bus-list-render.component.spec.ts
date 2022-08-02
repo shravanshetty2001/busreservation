@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BusListRenderComponent } from './bus-list-render.component';
@@ -8,7 +9,8 @@ describe('BusListRenderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BusListRenderComponent ]
+      declarations: [ BusListRenderComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 

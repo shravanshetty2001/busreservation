@@ -9,11 +9,11 @@
           
           <!-- bus number -->
           <div class="form-group">
-            <label for="bustype">Bus Number</label>
-            <input type="number" formControlName="bustype" class="form-control" [(ngModel)]="addBtt.Blid"
+            <label for="bustype">Bus Id</label>
+            <input type="number" formControlName="bustype" class="form-control" [(ngModel)]="addBtt.blid"
             [ngClass]="{ 'is-invalid': submitted && f.bustype.errors }" />
             <div *ngIf="submitted && f.bustype.errors" class="invalid-feedback">
-              <div *ngIf="f.bustype.errors.required">Bus number</div>
+              <div *ngIf="f.bustype.errors.required">Bus Id</div>
             </div>
           </div>
 

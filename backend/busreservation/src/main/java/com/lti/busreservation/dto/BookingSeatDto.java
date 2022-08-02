@@ -7,6 +7,8 @@ public class BookingSeatDto {
 	private int bustimetable; 
 	private String email;
 	private String phoneno;
+	private String username;
+	private int userId;
 	
 	public String getEmail() {
 		return email;
@@ -31,6 +33,18 @@ public class BookingSeatDto {
 	}
 	public void setSeatno(int seatno) {
 		this.seatno = seatno;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	

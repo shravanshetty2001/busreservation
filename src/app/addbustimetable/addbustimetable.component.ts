@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddBustimetableDto } from '../class/add-bustimetable-dto';
+import { AdminData } from '../class/admin-data';
 import { BustimetableService } from '../service/bustimetable.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class AddbustimetableComponent implements OnInit {
 
   onSubmit()
   {
+    
     this.submitted = true;
     //  this.message=false;
     if (this.registerForm.invalid) {
@@ -26,6 +28,8 @@ export class AddbustimetableComponent implements OnInit {
     }
     if(this.submitted){
       console.log(JSON.stringify(this.addBtt));
+
+
 
       this.service.addBus(this.addBtt).subscribe(
       (data)=>{

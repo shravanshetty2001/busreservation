@@ -5,6 +5,8 @@ public class UnauthorizedUserDto {
 	private String email;
 	private String phoneno;
 	private int bookingId;
+	private String name;
+	
 	
 	public int getBooking() {
 		return bookingId;
@@ -23,6 +25,12 @@ public class UnauthorizedUserDto {
 	}
 	public void setPhoneno(String phoneno) {
 		this.phoneno = phoneno;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

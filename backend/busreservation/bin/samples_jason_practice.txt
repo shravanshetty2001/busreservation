@@ -1,0 +1,16 @@
+{
+    "email":"rishabh",
+    "password": "chawda",
+    "name": "rc@gmail.com",
+    "contactNo": "7894561230",
+    "balance": "0"
+}
+
+
+{
+    "email":"rishabh2@gmail.com",
+    "password": "chadvffwda",
+    "name": "rishabh",
+    "contactNo": "7894561230",
+    "balance": "0"
+}

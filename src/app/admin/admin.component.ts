@@ -41,7 +41,7 @@ export class AdminComponent implements OnInit {
           let adminStatusdto:AdminStatusdto=data;
           this.us=adminStatusdto.admin;
           console.log(data);
-          console.log(this.us.email);
+          // console.log(this.us.email);
           console.log(this.message);
           this.dashboardredirect(this.message,this.ermessage,this.us);
         }

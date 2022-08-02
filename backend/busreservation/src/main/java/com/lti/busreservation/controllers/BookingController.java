@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.busreservation.dto.BookingSeatDto;
-import com.lti.busreservation.service.BookingService;
+import com.lti.busreservation.dto.TicketDto;
+import com.lti.busreservation.services.BookingService;
 
 
 @RestController
@@ -28,13 +29,13 @@ public class BookingController {
 	}
 	
 	@PostMapping("bookings/unauthorizedUser/makebooking")
-	public BookingSeatDto makeUnauthorizedUserBooking(@Valid @RequestBody BookingSeatDto bookingSeatDto)
+	public TicketDto makeUnauthorizedUserBooking(@Valid @RequestBody BookingSeatDto bookingSeatDto)
 	{
 		return bookingService.makeBooking(bookingSeatDto);
 	}
 
-	@PostMapping("bookings/authorizedUser/makebooking/{id}")
-	public BookingSeatDto makeAuthorizedUserBooking(@Valid @RequestBody BookingSeatDto bookingSeatDto, @Pa)
+	@PostMapping("bookings/authorizedUser/makebooking")
+	public TicketDto makeAuthorizedUserBooking(@Valid @RequestBody BookingSeatDto bookingSeatDto)
 	{
 		return bookingService.authorizedUserMakeBooking(bookingSeatDto);
 	}

@@ -1,4 +1,4 @@
-package com.lti.busreservation.service;
+package com.lti.busreservation.services;
 
 import java.util.Optional;
 
