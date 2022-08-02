@@ -33,6 +33,12 @@ public class BuslistController {
 	  {
 	      return buslistService.addbusdetail(bs);
 	  }
+	 
+	 @GetMapping("/Buslist/viewbus")
+	 public List<Buslistdto> getAdminbuslist(@Valid @RequestBody int adminid)
+	 {
+		 return buslistService.getAdminbus(adminid);
+	 }
 	
 }
 

@@ -2,6 +2,8 @@ package com.lti.busreservation.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.lti.busreservation.dto.Buslistdto;
 import com.lti.busreservation.dto.Bustimetabledto;
 import com.lti.busreservation.dto.UserdetailDto;
@@ -15,6 +17,9 @@ public interface BuslistService {
 	
 
 	Buslistdto addbusdetail(Buslistdto buslistdto);
+
+
+	List<Buslistdto> getAdminbus(int adminid);
 	
 }
 

@@ -81,9 +81,8 @@ public class BustimetableServiceImpl implements BustimetableService {
 			// TODO Auto-generated method stub
 			
 			Bustimetable bust = new Bustimetable();
-			
-			
-			
+			Optional<Buslist> buslistEntity = buslistrepository.findById(bustimetabledto.getBlid());
+			Buslist buslist=buslistEntity.get();
 			Optional<Place> srcplaceEntity = placerepository.findById(bustimetabledto.getSourceplaceid());
 			Place srcplace = srcplaceEntity.get();
 			bust.setSourcePlace(srcplace);

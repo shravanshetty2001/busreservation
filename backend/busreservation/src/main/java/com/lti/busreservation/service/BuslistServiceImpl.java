@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -78,10 +80,29 @@ public class BuslistServiceImpl implements BuslistService {
         adm.getBuslist().add(bus);
         buslistrepository.save(bus);
         buslistdto.setId(bus.getId());
+		return buslistdto;
+	}
+
+
+	@Override
+	public List<Buslistdto> getAdminbus(int adminid) {
+		Optional<Admin> adminEntity = adminRepository.findById(adminid);
+        Admin ad = adminEntity.get();
+        List<Buslist> buslist=ad.getBuslist();
+        List<Buslistdto> bdto=new LinkedList<>();
+        for(Buslist b: buslist)
+        {
+        	Buslistdto bd=new Buslistdto();
+        	bd.setId(b.getId());
+        	bd.setBusType(b.getBusType());
+        	bd.setBusNo(b.getBusNo());
+        	bd.setAc(b.isAc());
+        	bd.setSleeper(b.isSleeper());
+        	bdto.add(bd);      	
+        }
+        return bdto;
         
 		
-        
-		return buslistdto;
 	}
 	
 	

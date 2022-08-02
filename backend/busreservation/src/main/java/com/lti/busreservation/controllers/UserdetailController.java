@@ -16,7 +16,7 @@ import com.lti.busreservation.services.UserdetailService;
 import com.lti.busreservation.dto.*;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins="*")
 public class UserdetailController {
 
 	@Autowired

@@ -63,7 +63,7 @@
           <div class="form-group">
             <label>Price</label>
             <input type="number" formControlName="price" class="form-control" [(ngModel)]="addBtt.price"
-              [ngClass]="{ 'is-invalid': submitted }" />
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors}" />
             <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
               <div *ngIf="f.price.errors.required">Price required</div>
             </div>

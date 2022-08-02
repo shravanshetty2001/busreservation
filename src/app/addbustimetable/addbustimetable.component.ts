@@ -27,12 +27,12 @@ export class AddbustimetableComponent implements OnInit {
     if(this.submitted){
       console.log(JSON.stringify(this.addBtt));
 
-      // this.service.addBus(this.addBtt).subscribe(
-      //   (data)=>{
-      //     console.log(data);
-      //     alert("Bus time table Added Successfully");
-      //   }
-      // );
+      this.service.addBus(this.addBtt).subscribe(
+      (data)=>{
+        console.log(data);
+        alert("Bus time table Added Successfully");
+         }
+      );
 
 
     }

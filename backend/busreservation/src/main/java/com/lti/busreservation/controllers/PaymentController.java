@@ -17,7 +17,7 @@ import com.lti.busreservation.dto.PaymentStatusDto;
 import com.lti.busreservation.dto.PaymentinfoDto;
 import com.lti.busreservation.services.PaymentService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins="*")
 @RestController
 public class PaymentController {
 	
