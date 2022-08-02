@@ -1,13 +1,17 @@
 package com.lti.busreservation.dto;
 
+import com.lti.busreservation.models.Admin;
 
 public class Buslistdto {
 	
+	
+	int id;
 	String busType;
 	int noSeats;
 	String busNo;
 	boolean sleeper;
 	boolean ac;
+	int admin;
 	
 	
 	public  String getBusType() {
@@ -40,7 +44,20 @@ public class Buslistdto {
 	public void setAc(boolean ac) {
 		this.ac = ac;
 	}
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 	
 }
+

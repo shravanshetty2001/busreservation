@@ -7,13 +7,16 @@ import java.sql.Timestamp;
 import com.lti.busreservation.models.Buslist;
 import com.lti.busreservation.models.Place;
 
-public class Bustimtabledto {
+public class Bustimetabledto {
 	
 	Timestamp sDatetime;
 	Timestamp dDatetime;
-	Place sourcePlace;
-	Place desnPlace;
-	Buslist Blid;
+	String sourcePlace;
+	String desnPlace;
+	int Blid;
+	int sourceplaceid;
+	int desnplaceid;
+	
 	
 	public Timestamp getsDatetime() {
 		return sDatetime;
@@ -27,25 +30,38 @@ public class Bustimtabledto {
 	public void setdDatetime(Timestamp dDatetime) {
 		this.dDatetime = dDatetime;
 	}
-	public Place getSourcePlace() {
+	public String getSourcePlace() {
 		return sourcePlace;
 	}
-	public void setSourcePlace(Place sourcePlace) {
+	public void setSourcePlace(String sourcePlace) {
 		this.sourcePlace = sourcePlace;
 	}
-	public Place getDesnPlace() {
+	public String getDesnPlace() {
 		return desnPlace;
 	}
-	public void setDesnPlace(Place desnPlace) {
+	public void setDesnPlace(String desnPlace) {
 		this.desnPlace = desnPlace;
 	}
-	public Buslist getBlid() {
+	public int getBlid() {
 		return Blid;
 	}
-	public void setBlid(Buslist blid) {
+	public void setBlid(int blid) {
 		Blid = blid;
+	}
+	public int getSourceplaceid() {
+		return sourceplaceid;
+	}
+	public void setSourceplaceid(int sourceplaceid) {
+		this.sourceplaceid = sourceplaceid;
+	}
+	public int getDesnplaceid() {
+		return desnplaceid;
+	}
+	public void setDesnplaceid(int desnplaceid) {
+		this.desnplaceid = desnplaceid;
 	}
 	
 	
 	
 }
+
