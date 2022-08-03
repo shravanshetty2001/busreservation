@@ -1,4 +1,4 @@
 export class Place {
-    pid: Number;
+    pid: number;
     placeName: String;
 }

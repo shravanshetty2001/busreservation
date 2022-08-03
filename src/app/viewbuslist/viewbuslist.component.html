@@ -1,37 +1,27 @@
-<div class="main-card-div">
+<div class="main-card-div"  >
   <div class="list-menu">
-
-    <div class="card " *ngFor="let l from busdetail">
-
-      <div class="card-body">
-
-        <div class="card-body-top">
-          <img [src]="buslogo" alt="Avatar">
-          <h5 class="card-title"></h5>
-          <div class="departure-time">
-            0
-            <label>No of Seats</label>
-          </div>
-          <div class="arrival-time">
-            MH04AT4323
-            <label>Bus No</label>
-          </div>
-          <div class="start-from">
-            Yes
-            <label>Sleeper</label>
-          </div>
-          <div class="start-end">
-            Yes
-            <label>AC</label>
-          </div>
-          <div class="card-body-bottom">
-            <div>
-              <button class="btn btn-primary" type="submit">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+              <div class="card" *ngFor="let r of buslist">
+                  <div class="card-body" >
+                      <div class="card-body-top">
+                          <h5 class="card-title">{{r.id}}</h5>                      
+                          <div class="departure-time">
+                              Bus Number
+                              <label>{{r.busNo}}</label>
+                          </div>
+                          <div class="arrival-time">
+                            Bus Type
+                              <label>{{r.busType}}</label>
+                          </div>
+                          <div class="start-from">
+                              AC
+                              <label>{{r.ac}}</label>
+                          </div>
+                          <div class="start-from">
+                              Sleeper
+                            <label>{{r.sleeper}}</label>
+                        </div>
+                      </div>
+                  </div>
+              </div>       
   </div>
 </div>

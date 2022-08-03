@@ -9,6 +9,7 @@ import com.lti.busreservation.dto.Bustimetabledto;
 import com.lti.busreservation.dto.UserdetailDto;
 import com.lti.busreservation.dto.UserdetailRegisterDto;
 import com.lti.busreservation.dto.UserdetailStatusDto;
+import com.lti.busreservation.dto.ViewDto;
 import com.lti.busreservation.models.Buslist;
 
 public interface BuslistService {
@@ -19,7 +20,10 @@ public interface BuslistService {
 	Buslistdto addbusdetail(Buslistdto buslistdto);
 
 
-	List<Buslistdto> getAdminbus(int adminid);
+
+
+
+	List<Buslistdto> getAdminbus(int viewDto);
 	
 }
 
