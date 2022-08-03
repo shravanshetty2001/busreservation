@@ -19,15 +19,15 @@ export class ViewbustimetableComponent implements OnInit {
         datas.map(data=>
           {
             let bustimedata: AddBustimetableDto={
-              sDatetime:data.sDatetime,
-              dDatetime:data.dDatetime,
-              sourcePlace:data.sourcePlace,
-              desnPlace:data.desnPlace,
-              blid:data.blid,
-              sourceplaceid:data.sourceplaceid,
-              desnplaceid:data.desnplaceid,
-              price:data.price
-  
+              sDatetime: data.sDatetime,
+              dDatetime: data.dDatetime,
+              sourcePlace: data.sourcePlace,
+              desnPlace: data.desnPlace,
+              blid: data.blid,
+              sourceplaceid: data.sourceplaceid,
+              desnplaceid: data.desnplaceid,
+              price: data.price,
+              id: data.id
             }
             this.bustimetable.push(bustimedata);
           }
