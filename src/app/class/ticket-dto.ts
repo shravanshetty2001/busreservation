@@ -4,7 +4,7 @@ export class TicketDto {
 	route: String;
 	sourceplace: String;
 	destplace: String;
-	date: Number;
+	date: Date;
 	time: Number;
 	name: String;
 	phoneno: String;

@@ -1,11 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { Seat } from '../class/seat';
+import { TicketDto } from '../class/ticket-dto';
 import { UserdetailDto } from '../classcomponents/UserdetailDto';
 import { BookseatService } from '../services/bookseat.service';
 import { ResultService } from '../services/result.service';
+import { TicketFormComponent } from '../ticket-form/ticket-form.component';
 
 @Component({
   selector: 'app-seat-reservation',
@@ -18,6 +21,7 @@ export class SeatReservationComponent {
   // @Input('bus') bus:Bus;
   // @Output('closeModal') closeModal = new EventEmitter()
   showSeatList: Seat[] = [];
+  ticket: TicketDto;
   total = 0;
   fillupSeat = [];
   alert = false;
@@ -28,11 +32,13 @@ export class SeatReservationComponent {
 
 
   seat: Seat;
+  ticketobj: TicketDto;
 
   constructor(
     private route: Router,
     private BookSeatService: BookseatService,
-    private resultservice: ResultService
+    private resultservice: ResultService,
+    private controlDialog:MatDialog,
   ) { }
 
   
@@ -121,11 +127,37 @@ export class SeatReservationComponent {
           console.log(seat.seatno);
           this.BookSeatService.authusrbookSeat(seat).subscribe(
             (item)=>{
-              console.log(item);
+              console.log("item",item);
+              let ticketobj: TicketDto = {
+                seatno: item.seatno,
+                route: item.route,
+                sourceplace: item.sourceplace,
+                destplace: item.destplace,
+                date: item.date,
+                time: item.time,
+                name: item.name,
+                phoneno: item.phoneno,
+                bookedOn: item.bookedOn,
+                price: item.price
+              }
+              this.resultservice.ticket = ticketobj;
+              console.log("ticket",this.resultservice.ticket);
+              // console.log("ticketobj: ",ticketobj);
+              // this.ticket = Object.assign({},ticketobj);
+              this.controlDialog.open(TicketFormComponent,{
+                disableClose: true ,
+                width: '90%',
+                height: '80%'
+              });
             }
+            
           );
         });
 
+        
+        
+        // console.log("service ticket",this.resultservice.ticket);
+       
       }
       
       else{
@@ -134,11 +166,24 @@ export class SeatReservationComponent {
           console.log(seat.seatno);
           this.BookSeatService.bookSeat(seat).subscribe(
             (item)=>{
-              console.log(item);
+              let ticketobj: TicketDto = {
+                seatno: item.seatno,
+                route: item.route,
+                sourceplace: item.sourceplace,
+                destplace: item.destplace,
+                date: item.date,
+                time: item.time,
+                name: item.name,
+                phoneno: item.phoneno,
+                bookedOn: item.bookedOn,
+                price: item.price
+              }
+              // this.ticket = ticketobj;
             }
           );
         });
-      
+        this.resultservice.ticket = this.ticket;
+        console.log(this.ticket);
       }
 
      

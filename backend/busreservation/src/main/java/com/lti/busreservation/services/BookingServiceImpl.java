@@ -89,7 +89,7 @@ public class BookingServiceImpl implements BookingService{
 		ticket.setRoute(bustimetable.getSourcePlace().getPlaceName()+" to "+bustimetable.getDesnPlace().getPlaceName());
 		ticket.setSourceplace(bustimetable.getSourcePlace().getPlaceName());
 		ticket.setDestplace(bustimetable.getDesnPlace().getPlaceName());
-		ticket.setDate(bustimetable.getsDatetime().getDate());
+		ticket.setDate(bustimetable.getsDatetime());
 		ticket.setTime(bustimetable.getsDatetime().getTime());
 		ticket.setPhoneno(bookingSeatDto.getPhoneno());
 		ticket.setName(bookingSeatDto.getUsername());
@@ -150,6 +150,8 @@ public class BookingServiceImpl implements BookingService{
 		
 		bustimetable.getBooking().add(book);
 		
+		user.getPayment().add(payment);
+		
 		bookingRepository.save(book);
 		bustimetableRepository.save(bustimetable);
 		userdetailRepository.save(user);
@@ -160,7 +162,7 @@ public class BookingServiceImpl implements BookingService{
 		ticket.setRoute(bustimetable.getSourcePlace().getPlaceName()+" to "+bustimetable.getDesnPlace().getPlaceName());
 		ticket.setSourceplace(bustimetable.getSourcePlace().getPlaceName());
 		ticket.setDestplace(bustimetable.getDesnPlace().getPlaceName());
-		ticket.setDate(bustimetable.getsDatetime().getDate());
+		ticket.setDate(bustimetable.getsDatetime());
 		ticket.setTime(bustimetable.getsDatetime().getTime());
 		ticket.setPhoneno(bookingSeatDto.getPhoneno());
 		ticket.setName(bookingSeatDto.getUsername());

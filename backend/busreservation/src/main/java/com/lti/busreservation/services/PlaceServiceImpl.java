@@ -32,7 +32,7 @@ public class PlaceServiceImpl implements PlaceService{
 		for(Place p: places) 
 		{
 			Placedto placedto = new Placedto();
-			placedto.setId(p.getId());
+			placedto.setPid(p.getId());
 			placedto.setPlaceName(p.getPlaceName());
 			
 			placedtolist.add(placedto);
