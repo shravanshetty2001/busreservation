@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class AdmindashboardComponent implements OnInit {
 
   constructor() {}
+  addBus:String = "assets/img/addbus.jpg";
+  viewBus:String = "assets/img/viewbus.png";
+  addTimetable:String = "assets/img/addtimetable.png";
+  viewTimetable:String = "assets/img/viewtimetable.png";
 
   ngOnInit(): void {
     

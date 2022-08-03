@@ -1,13 +1,13 @@
 package com.lti.busreservation.dto;
 
 public class Placedto {
-	int id;
+	int pid;
 	String placeName;
-	public int getId() {
-		return id;
+	public int getPid() {
+		return pid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 	public String getPlaceName() {
 		return placeName;

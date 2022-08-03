@@ -13,7 +13,8 @@ import { PlacesService } from '../services/places.service';
 })
 export class AddbustimetableComponent implements OnInit 
 {
-
+  splace:any;
+  dplace:any;
   registerForm: FormGroup;
   submitted = false;
   message: boolean;
@@ -22,7 +23,8 @@ export class AddbustimetableComponent implements OnInit
   constructor(private formBuilder: FormBuilder, private service: BustimetableService, private placeservices: PlacesService) { }
   places: Place[] = [];
   onSubmit() {
-
+    this.addBtt.sourceplaceid=Number((<HTMLInputElement>document.getElementById("srcplace")).value);
+    this.addBtt.desnplaceid=Number((<HTMLInputElement>document.getElementById("desntplace")).value);
     this.submitted = true;
     //  this.message=false;
     if (this.registerForm.invalid) {
@@ -30,7 +32,9 @@ export class AddbustimetableComponent implements OnInit
       return;
     }
     if (this.submitted) {
+
       console.log(JSON.stringify(this.addBtt));
+      
 
 
 
@@ -61,11 +65,14 @@ export class AddbustimetableComponent implements OnInit
         console.log(items);
         items.map(item => {
           let place: Place = {
-            pid: item.pid,
+            pid: <number>item.pid,
+           
             placeName: item.placeName
           }
+
           this.places.push(place);
         }
+        
         );
 
       

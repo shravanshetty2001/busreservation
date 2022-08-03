@@ -41,9 +41,9 @@
           <!-- source -->
           <div class="form-group">
             <label for="source">Source</label>
-            <select type="number" formControlName="source" id="srcplace" [(ngModel)]="addBtt.sourceplaceid">
-              <option class="form-control" type="number" value="">Enter Source</option>
-              <option class="form-control" type="number" *ngFor="let p of places" [value]="p.pid">{{p.placeName}}</option>
+            <select type="number" formControlName="source" id="srcplace" #splace>
+              <!--<option class="form-control" type="number" value="">Enter Source</option>-->
+              <option class="form-control" type="number" *ngFor="let p of places" [value]=p.pid>{{p.placeName}}</option>
             </select>
           </div>
 
@@ -51,9 +51,9 @@
           <!-- destination -->
           <div class="form-group">
             <label for="desn">Destination</label>
-            <select type="number" id="desntplace" formControlName="desn" [(ngModel)]="addBtt.desnplaceid">
-              <option class="form-control" type="number" value="">Enter Destination</option>
-              <option class="form-control" type="number" *ngFor="let p of places" [value]="p.pid">{{p.placeName}}</option>
+            <select type="number" id="desntplace" formControlName="desn" #dplace>
+              <!-- <option class="form-control" type="number" value="">Enter Destination</option> -->
+              <option class="form-control" type="number" *ngFor="let p of places" [value]=p.pid>{{p.placeName}}</option>
             </select>
           </div>
 
