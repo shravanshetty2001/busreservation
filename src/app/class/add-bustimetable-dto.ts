@@ -8,4 +8,5 @@ export class AddBustimetableDto {
 	sourceplaceid:number;
 	desnplaceid:number;
 	price:number;
+	id:Number
 }

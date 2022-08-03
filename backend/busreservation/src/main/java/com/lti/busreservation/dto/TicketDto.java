@@ -9,24 +9,30 @@ public class TicketDto {
 	private String route;
 	private String sourceplace;
 	private String destplace;
-	private int date;
+	private Timestamp date;
 	private long time;
 	private String name;
 	private String phoneno;
-	private int bookedOn;
+	private Timestamp bookedOn;
 	private double price;
 	
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
 	public double getPrice() {
 		return price;
 	}
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getBookedOn() {
+	public Timestamp getBookedOn() {
 		return bookedOn;
 	}
-	public void setBookedOn(int bookedOn) {
-		this.bookedOn = bookedOn;
+	public void setBookedOn(Timestamp timestamp) {
+		this.bookedOn = timestamp;
 	}
 	public int getSeatno() {
 		return seatno;
@@ -71,12 +77,7 @@ public class TicketDto {
 	public void setPhoneno(String phoneno) {
 		this.phoneno = phoneno;
 	}
-	public int getDate() {
-		return date;
-	}
-	public void setDate(int date) {
-		this.date = date;
-	}
+	
 	
 	
 	

@@ -3,6 +3,7 @@ package com.lti.busreservation.dto;
 public class Placedto {
 	int pid;
 	String placeName;
+
 	public int getPid() {
 		return pid;
 	}

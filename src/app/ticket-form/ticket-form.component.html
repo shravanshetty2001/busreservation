@@ -7,7 +7,7 @@
   <tbody>
     <tr>
       <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
           <tbody>
             <tr>
               <td
@@ -30,7 +30,7 @@
 
     <tr>
       <td>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" >
           <tbody>
             <tr>
               <td style="background-color: #1b2b47; padding: 10px 15px">
@@ -75,7 +75,7 @@
                 font-weight: bold;
               "
             >
-              22-11-2019, 2:26 PM
+              {{ticket.bookedOn}}
             </td>
           </tr>
 
@@ -125,11 +125,11 @@
                 font-weight: bold;
               "
             >
-              928392839298
+              {{ticket.phoneno}}
             </td>
           </tr>
 
-          <tr>
+          <!-- <tr>
             <td
               style="
                 padding: 10px 15px;
@@ -150,9 +150,9 @@
                 font-weight: bold;
               "
             >
-              <a href="mailto:test@gmail.com">test@gmail.com</a>
+              <a href="#">{{ticket.}}</a>
             </td>
-          </tr>
+          </tr> -->
 
           <tr>
             <td
@@ -175,11 +175,11 @@
                 font-weight: bold;
               "
             >
-              ABC
+              {{ticket.time}}
             </td>
           </tr>
 
-          <tr>
+          <!-- <tr>
             <td
               style="
                 padding: 10px 15px;
@@ -202,7 +202,7 @@
             >
               XYZ
             </td>
-          </tr>
+          </tr> -->
 
           <tr>
             <td
@@ -225,7 +225,7 @@
                 font-weight: bold;
               "
             >
-              28 March, 2020
+              {{ticket.date}}
             </td>
           </tr>
         </table>
@@ -279,7 +279,7 @@
             From/To
           </td>
 
-          <td
+          <!-- <td
             style="
               padding: 10px 15px;
               border: 1px solid #000;
@@ -290,7 +290,7 @@
             "
           >
             Bus
-          </td>
+          </td> -->
 
           <td
             style="
@@ -329,10 +329,10 @@
               width: 30%;
             "
           >
-            Hyderabad To Bangalore
+            {{ticket.route}}
           </td>
 
-          <td
+          <!-- <td
             style="
               padding: 10px 15px;
               border: 1px solid #000;
@@ -342,7 +342,7 @@
             "
           >
             Vikas Tourist 2+1 Non AC Sleeper
-          </td>
+          </td> -->
 
           <td
             style="
@@ -353,7 +353,7 @@
               width: 15%;
             "
           >
-            15-03-2019
+            {{ticket.bookedOn}}
           </td>
 
           <td
@@ -365,7 +365,7 @@
               width: 40%;
             "
           >
-            9:15 AM
+            {{ticket.time}}
           </td>
         </tr>
       </table>
@@ -463,7 +463,7 @@
                       font-weight: bold;
                     "
                   >
-                    Mr. Rahul Singh
+                    {{ticket.name}}
                   </td>
 
                   <td
@@ -477,7 +477,7 @@
                       font-weight: bold;
                     "
                   >
-                    L1
+                    {{ticket.seatno}}
                   </td>
 
                   <td
@@ -491,7 +491,7 @@
                       font-weight: bold;
                     "
                   >
-                    Rs. 470.00
+                    Rs. {{ticket.price}}
                   </td>
                 </tr>
               </table>
