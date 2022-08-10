@@ -6,6 +6,7 @@ public class AdminDto {
 	private String password;
 	private String travelname;
 	private String contactno;
+	
 	public int getId() {
 		return id;
 	}
