@@ -179,11 +179,17 @@ export class SeatReservationComponent {
                 price: item.price
               }
               // this.ticket = ticketobj;
+              this.resultservice.ticket = ticketobj;
+              console.log("ticket",this.resultservice.ticket);
+              this.controlDialog.open(TicketFormComponent,{
+                disableClose: true ,
+                width: '90%',
+                height: '80%'
+              });
             }
           );
         });
-        this.resultservice.ticket = this.ticket;
-        console.log(this.ticket);
+        
       }
 
      

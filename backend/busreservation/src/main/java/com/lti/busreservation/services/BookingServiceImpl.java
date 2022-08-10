@@ -136,7 +136,7 @@ public class BookingServiceImpl implements BookingService{
 		Bustimetable bustimetable = bustimetableEntity.get();
 		
 		payment.setAmount(bustimetable.getPrice());
-		payment.setPaymentType(true);
+		payment.setPaymentType(false);
 		payment.setPaymentDatetime(timestamp);
 		payment.setUserdetail(user);
 		
